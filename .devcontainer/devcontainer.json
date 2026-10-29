@@ -1,0 +1,19 @@
+{
+  "name": "Mi proyecto (VS Code + Claude + ChatGPT)",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-code",
+        "openai.chatgpt",
+        "ms-ceintl.vscode-language-pack-es"
+      ],
+      "settings": {
+        "locale": "es",
+        "files.autoSave": "afterDelay"
+      }
+    }
+  },
+  "forwardPorts": [3000, 5500, 8080],
+  "postCreateCommand": "npm install -g @anthropic-ai/claude-code @openai/codex || true"
+}
