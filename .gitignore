@@ -1,0 +1,6 @@
+# Secretos: nunca al repo
+*.env
+.secretos/
+# Trabajo pesado
+videos/**/_trabajo/
+videos/**/tomas/candidatas/
