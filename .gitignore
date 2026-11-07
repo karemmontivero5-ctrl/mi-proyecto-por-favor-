@@ -1,0 +1,4 @@
+.env
+*.env
+.secretos/
+videos/**/_trabajo/
