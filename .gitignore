@@ -1,0 +1,23 @@
+# Obsidian: lo que cambia solo cada vez que abrís la app
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.trash/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Dependencias y builds de los espejos de software
+node_modules/
+__pycache__/
+*.pyc
+dist/
+build/
+
+# Secretos: nunca a la bóveda ni a GitHub
+.env
+.env.*
+*.key
+*.pem
+secrets/
+credenciales/
