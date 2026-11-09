@@ -53,6 +53,10 @@ async function pedir(ruta, cuerpo, salida) {
   const j = await r.json();
   const id = j?.data?.[0]?.task_id ?? j?.data?.task_id;
   if (!id) throw new Error(`${path.basename(salida)}: rechazado ${r.status} ${JSON.stringify(j).slice(0, 300)}`);
+  // Anotar el pedido apenas sale: si la descarga falla, se recupera con este id sin volver a pagar.
+  console.log(`→ ${path.basename(salida)}: pedido ${id}`);
+  fs.mkdirSync(path.dirname(COSTOS), {recursive: true});
+  fs.appendFileSync(path.join(path.dirname(COSTOS), 'pedidos.log'), `${new Date().toISOString()} ${id} ${salida}\n`);
   return id;
 }
 
