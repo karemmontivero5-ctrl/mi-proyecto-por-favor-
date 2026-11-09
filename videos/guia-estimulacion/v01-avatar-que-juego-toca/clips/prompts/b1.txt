@@ -1,0 +1,15 @@
+IDENTITY LOCK - READ FIRST:
+The woman in the attached image, LAURA, is the ONLY speaker. Keep the exact same face in every frame; every facial feature stays as in the input image.
+Locked features: 31-year-old Latin American woman, soft oval face, warm dark-brown almond eyes, softly arched dark-brown eyebrows, straight medium nose with a softly rounded tip, natural rosy-brown lips, warm light-olive skin with faint freckles across the nose and a small mole on the left cheek, dark chestnut shoulder-length soft waves, dusty-pink knit sweater, small gold stud earrings.
+The baby boy, SIMONE, 14 months old, stays exactly as in the input image: same face, hair and mint-green t-shirt. He stays calm and quiet the whole clip, with small, slow, natural toddler movements, and never speaks or cries.
+The FIRST FRAME of the video is the attached image, unchanged.
+SKIN & TEXTURE: visible pores, natural sebum sheen, slightly uneven skin tone, fine lines, natural lip texture. Skin looks alive and human.
+SCENE: animate the subjects inside the environment of the attached image. Keep its background, wardrobe, lighting, color palette and atmosphere exactly as they are.
+CAMERA: keep the framing of the attached image. 35 mm equivalent. Very subtle handheld micro-movement, like a selfie video. Fixed distance and framing for the whole clip.
+ACTION FOR THIS CLIP: LAURA looks into the lens with a doubtful, searching expression and gives a small honest shrug while she speaks, keeping one arm gently around SIMONE; SIMONE quietly turns the stacking rings in his hands, looking down at them. Minimal natural head movement (2-3 degrees). Real blink every 4-6 s. Shoulders breathe. Precise lip and jaw sync with every syllable. She never raises a single finger toward the camera.
+LIGHTING: match the light of the attached image. No flat fill.
+VOICE - the SAME voice in every clip of this series, clip 1 of 4: neutral Latin American Spanish, no regional slang, woman around 30 years old, warm, close and genuine voice, like a mom talking honestly to a friend. Pace: agile and natural. Tone: direct, speaks TO the viewer. Energy: 7/10, controlled. Pitch stays steady and medium. Sentences end with a slight downward, confident intonation. Crisp consonants. Words in CAPITALS get stronger emphasis.
+AUDIO: clean isolated voice only, silent background.
+FRAME: clean image, the picture only, with nothing written or overlaid.
+SCRIPT - say it EXACTLY as written, word for word, ONCE. Start speaking within the first 0.3 s and finish before second 7.5; after the last word, close the mouth and hold a natural, confident expression until the end:
+"Yo no sabía qué juego le tocaba a mi bebé. Veía ideas en redes, pero nunca sabía si eran para su EDAD."
