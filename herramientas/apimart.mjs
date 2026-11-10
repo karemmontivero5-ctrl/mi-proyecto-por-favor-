@@ -87,7 +87,12 @@ async function imagen({salida, prompt, model = 'gemini-3-pro-image-preview', siz
 
 async function video({salida, prompt, model = 'seedance-2.0-mini', res = '720p', dur = 5, ar = '9:16', imagen: img}) {
   const cuerpo = {model, prompt, duration: Number(dur), aspect_ratio: ar, resolution: res};
-  if (img) cuerpo.image_urls = [await subir(img)];
+  if (String(model).startsWith('seedance')) {
+    // Seedance usa "size" para el formato (si no, sale 16:9) y genera audio salvo que se apague.
+    delete cuerpo.aspect_ratio;
+    Object.assign(cuerpo, {size: ar, generate_audio: false});
+    if (img) cuerpo.image_with_roles = [{url: await subir(img), role: 'first_frame'}];
+  } else if (img) cuerpo.image_urls = [await subir(img)];
   return esperarArchivo(await pedir('/v1/videos/generations', cuerpo, salida), salida, 'mp4');
 }
 
