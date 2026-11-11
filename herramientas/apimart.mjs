@@ -92,7 +92,11 @@ async function video({salida, prompt, model = 'seedance-2.0-mini', res = '720p',
     delete cuerpo.aspect_ratio;
     Object.assign(cuerpo, {size: ar, generate_audio: false});
     if (img) cuerpo.image_with_roles = [{url: await subir(img), role: 'first_frame'}];
-  } else if (img) cuerpo.image_urls = [await subir(img)];
+  } else if (img) {
+    cuerpo.image_urls = [await subir(img)];
+    // Veo: con una sola imagen, pedir explícitamente que sea el primer cuadro.
+    if (/^veo3\.1-(fast|quality)/.test(model)) cuerpo.generation_type = 'frame';
+  }
   return esperarArchivo(await pedir('/v1/videos/generations', cuerpo, salida), salida, 'mp4');
 }
 
