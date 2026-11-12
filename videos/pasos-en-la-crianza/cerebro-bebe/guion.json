@@ -1,0 +1,30 @@
+{
+  "estado": "PROPUESTA - sin aprobar, voz sin generar",
+  "producto": "Guía de estimulación 0 a 3 años",
+  "formato": "b-roll animado 3D con voz en off",
+  "angulo": "deseo: conectar con su bebé con juegos simples",
+  "narradora": "Lucía, en primera persona; habla de tú a quien mira",
+  "boton_landing": "SÍ, QUIERO LA GUÍA",
+  "tramos": [
+    {
+      "escena": 1,
+      "texto": "A los cinco meses, Benja me mira como si fuera su mundo. Y yo no sabía qué hacer con esa mirada."
+    },
+    {
+      "escena": 2,
+      "texto": "Le compraba juguetes caros y, cuando se me acababan las ideas, aparecía la pantalla. Pero él buscaba otra cosa."
+    },
+    {
+      "escena": 3,
+      "texto": "Me buscaba a mí. Mi voz, mi cara, que le hablara y esperara su respuesta."
+    },
+    {
+      "escena": 4,
+      "texto": "Con la Guía de estimulación de 0 a 3 años aprendí que alcanza con cosas de casa y quince minutos al día."
+    },
+    {
+      "escena": 5,
+      "texto": "Los primeros años no vuelven. Busca la etapa de tu bebé y empieza hoy."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "estado": "PROPUESTA - sin aprobar, nada generado",
+  "producto": "Guía de estimulación 0 a 3 años",
+  "formato": "avatar",
+  "angulo": "dolor: no saber qué juego le toca a su edad",
+  "trato": "tú (español neutro, igual que la landing)",
+  "boton_landing": "SÍ, QUIERO LA GUÍA",
+  "bloques": [
+    {"id": "B1", "rol": "gancho", "texto": "Yo no sabía qué juego le tocaba a mi bebé. Veía ideas en redes, pero nunca sabía si eran para su EDAD."},
+    {"id": "B2", "rol": "problema", "texto": "Compraba juguetes caros que usaba dos días. Sentía que no tenía tiempo. Y cuando se me acababan las ideas, aparecía la PANTALLA."},
+    {"id": "B3", "rol": "solución", "texto": "Hasta que encontré la Guía de estimulación de 0 a 3 años: más de 100 juegos MES A MES, con cosas que ya tenía en casa."},
+    {"id": "B4", "rol": "objeción + oferta + llamado", "texto": "Son solo 15 minutos al día. Trae 7 módulos y 3 bonos de regalo. Toca el botón, busca su etapa y EMPIEZA hoy."}
+  ]
+}
