@@ -109,3 +109,16 @@
 - Guía para comer sano fuera de casa y en reuniones
 - Audio o meditación guiada de 5 minutos para días de ansiedad (con voz de Higgsfield)
 - Reto de 21 días "Un día a la vez"
+
+---
+
+## Decisiones de marca
+- **Marca:** Método Constante
+- **Colores:** verde oscuro (#1F3B2D) + crema (#F3EBDD), con detalles dorado-beige
+- **Estilo:** hiperrealista, serio, premium
+
+## Checklist
+- [ ] Portafolio de Facebook: logo / foto de perfil
+- [ ] Portafolio de Facebook: foto de portada
+- [ ] Portafolio de Facebook: descripción + bio + datos
+- [ ] ⏰ RECORDAR a la usuaria: al terminar Facebook, hacer la PORTADA DEL EBOOK
