@@ -1,6 +1,6 @@
 # Un día a la vez: constancia, no perfección
 
-**Subtítulo:** Cómo volver a empezar con tu cuerpo, tu comida y tu mente, sin dietas estrictas
+**Subtítulo:** Cuidarte no es un castigo, es un mimo
 
 - **Público:** hombres y mujeres que empiezan y abandonan, que no quieren dietas extremas y que vienen de una etapa difícil.
 - **Largo:** mediano (40–50 páginas aprox.)
