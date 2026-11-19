@@ -460,7 +460,7 @@ h3{font-size:26px}
 </section>
 
 <!-- ═════ COMENTARIOS (carrusel de capturas) ═════
-     Se muestra SOLO si cargás capturas reales en la lista CAPTURAS del script de abajo. -->
+     Cargá las capturas reales en la lista CAPTURAS del script de abajo. -->
 <section class="sec claro centro" id="opiniones" style="display:none">
   <div class="wrap">
     <span class="kicker rv">Voces reales</span>
@@ -553,7 +553,7 @@ h3{font-size:26px}
    Subí a Impultienda las fotos (capturas) de los comentarios reales y pegá
    cada enlace entre comillas, uno por línea, con una coma al final. Ejemplo:
    "https://sb.impultienda.ar/storage/v1/object/public/.../comentario-1.webp",
-   Mientras la lista esté vacía, la sección no se muestra. */
+   Mientras la lista esté vacía, se ven 5 recuadros de ejemplo. */
 var CAPTURAS = [
 ];
 
@@ -569,7 +569,7 @@ var COMENTARIOS = [
 ];
 (function(){
   try{
-    if(!COMENTARIOS.length && !CAPTURAS.length) return;
+    var VACIO=!COMENTARIOS.length && !CAPTURAS.length;
     var lista=document.getElementById('fb-lista');
     function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]});}
     var items=[];
@@ -581,6 +581,8 @@ var COMENTARIOS = [
       items.push('<div class="tc-item fb-card"><div class="fb-top"><div class="fb-av">'+av+'</div><div class="fb-bubble"><div class="fb-name">'+esc(c.nombre)+'</div><div class="fb-txt">'+esc(c.texto)+'</div>'+re+'</div></div>'+
         '<div class="fb-acc"><span>Me gusta</span><span>Responder</span><span>'+esc(c.tiempo||'')+'</span></div></div>');
     });
+    /* sin capturas todavía: se muestran recuadros de ejemplo para ver el carrusel */
+    if(VACIO){for(var n=1;n<=5;n++){items.push('<div class="tc-item"><div class="img-ph" style="aspect-ratio:4/5;border:none">Captura de<br>comentario '+n+'</div></div>');}}
     var ORIG=items.length;
     /* copias al final para que el carrusel sea infinito */
     var dup=[];for(var k=0;k<Math.max(3,ORIG);k++){dup.push(items[k%ORIG].replace('class="tc-item','aria-hidden="true" class="tc-item'));}
