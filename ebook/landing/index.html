@@ -238,6 +238,23 @@ h3{font-size:26px}
 .formato strong{color:var(--tx)}
 .seguro{margin-top:16px;font-size:13.5px;color:var(--tx-mut)}
 
+/* ===== COMENTARIOS ESTILO FACEBOOK ===== */
+.fb-scroll{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 22px 18px;margin:26px -22px 0;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.fb-scroll::-webkit-scrollbar{display:none}
+.fb-card{flex:0 0 86%;max-width:380px;scroll-snap-align:center;background:#fff;border-radius:18px;padding:16px;box-shadow:var(--sombra);text-align:left;font-family:Helvetica,Arial,sans-serif}
+.fb-top{display:flex;gap:10px;align-items:flex-start}
+.fb-av{flex:0 0 40px;height:40px;border-radius:50%;background:var(--oro-grad);color:var(--verde);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;overflow:hidden}
+.fb-av img{width:100%;height:100%;object-fit:cover}
+.fb-bubble{position:relative;background:#F0F2F5;border-radius:18px;padding:9px 13px;flex:1}
+.fb-name{font-weight:700;font-size:14px;color:#050505}
+.fb-txt{font-size:15px;line-height:1.38;color:#050505;margin-top:2px}
+.fb-react{position:absolute;right:6px;bottom:-12px;background:#fff;border-radius:999px;padding:2px 6px 2px 3px;font-size:12px;color:#65676B;box-shadow:0 1px 3px rgba(0,0,0,.2);display:flex;align-items:center;gap:3px}
+.fb-react i{font-style:normal;font-size:13px}
+.fb-acc{margin:8px 0 0 62px;font-size:12px;font-weight:700;color:#65676B;display:flex;gap:14px}
+.fb-acc span:last-child{font-weight:400}
+.fb-hint{font-size:13.5px;color:var(--tx-mut);margin-top:4px}
+@media(min-width:760px){.fb-card{flex-basis:46%}}
+
 /* ===== GARANTÍA ===== */
 .sello{width:128px;height:128px;margin:0 auto 20px;border-radius:50%;background:var(--verde);display:flex;flex-direction:column;align-items:center;justify-content:center;
   box-shadow:0 0 0 5px var(--crema),0 0 0 7px var(--oro),0 14px 30px rgba(14,40,24,.25)}
@@ -429,6 +446,17 @@ h3{font-size:26px}
   </div>
 </section>
 
+<!-- ═════ COMENTARIOS (estilo Facebook) ═════
+     Se muestra SOLO si cargás comentarios reales en la lista COMENTARIOS del script de abajo. -->
+<section class="sec claro centro" id="opiniones" style="display:none">
+  <div class="wrap">
+    <span class="kicker rv">Lo que dicen</span>
+    <h2 class="rv">Lo que nos <span class="oro">contaron</span></h2>
+    <div class="fb-scroll" id="fb-lista"></div>
+    <p class="fb-hint">Deslizá para ver más opiniones →</p>
+  </div>
+</section>
+
 <!-- ═════ OFERTA ═════ -->
 <section class="sec oscuro centro" id="oferta">
   <div class="wrap">
@@ -503,6 +531,34 @@ h3{font-size:26px}
   © 2026 · Todos los derechos reservados
 </div>
 
+<script>
+/* ═════ COMENTARIOS REALES ═════
+   Copiá los comentarios reales de Facebook/WhatsApp de personas que leyeron el ebook,
+   con su permiso. Uno por línea, así:
+   {nombre:"Laura M.", texto:"Lo que escribió", tiempo:"2 d", me_gusta:5, foto:""},
+   - tiempo: lo que muestra Facebook (ej. "3 h", "2 d", "1 sem").
+   - me_gusta: el número real de reacciones (0 si no tiene).
+   - foto: enlace a la foto de perfil (opcional; si queda vacío se usan las iniciales).
+   Mientras la lista esté vacía, la sección no se muestra. */
+var COMENTARIOS = [
+];
+(function(){
+  try{
+    if(!COMENTARIOS.length) return;
+    var lista=document.getElementById('fb-lista');
+    function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]});}
+    COMENTARIOS.forEach(function(c){
+      var ini=c.nombre.split(' ').map(function(w){return w.charAt(0)}).join('').slice(0,2).toUpperCase();
+      var av=c.foto?'<img src="'+esc(c.foto)+'" alt="">':esc(ini);
+      var re=c.me_gusta>0?'<span class="fb-react"><i>👍</i><i>❤️</i>'+c.me_gusta+'</span>':'';
+      lista.insertAdjacentHTML('beforeend',
+        '<div class="fb-card"><div class="fb-top"><div class="fb-av">'+av+'</div><div class="fb-bubble"><div class="fb-name">'+esc(c.nombre)+'</div><div class="fb-txt">'+esc(c.texto)+'</div>'+re+'</div></div>'+
+        '<div class="fb-acc"><span>Me gusta</span><span>Responder</span><span>'+esc(c.tiempo||'')+'</span></div></div>');
+    });
+    document.getElementById('opiniones').style.display='';
+  }catch(e){}
+})();
+</script>
 <script>
 /* Activa las animaciones cuando cada parte aparece en pantalla */
 (function(){
