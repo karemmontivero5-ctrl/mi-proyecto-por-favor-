@@ -122,3 +122,4 @@
 - [ ] Portafolio de Facebook: foto de portada
 - [ ] Portafolio de Facebook: descripción + bio + datos
 - [ ] ⏰ RECORDAR a la usuaria: al terminar Facebook, hacer la PORTADA DEL EBOOK
+- [ ] Agregar al ebook el **Plan de 21 días** (se promete en la landing): Semana 1 La mente primero (días 1-7) · Semana 2 Comer mejor (8-14) · Semana 3 Moverte y sostenerlo (15-21), un mini reto por día.

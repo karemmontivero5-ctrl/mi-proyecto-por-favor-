@@ -108,7 +108,7 @@ h3{font-size:26px}
 
 /* ===== HERO ===== */
 #hero{padding-top:30px;padding-bottom:70px}
-.logo{width:min(300px,72vw);margin:0 auto -6px;-webkit-mask-image:radial-gradient(circle,#000 52%,transparent 71%);mask-image:radial-gradient(circle,#000 52%,transparent 71%)}
+.logo{width:min(230px,58vw);margin:0 auto 18px;-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 70%,transparent 100%);mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 70%,transparent 100%)}
 .hero-h1{font-size:clamp(33px,9vw,62px);line-height:1.04;letter-spacing:.02em;text-transform:uppercase;max-width:620px;margin:0 auto}
 .hero-sub{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(25px,6.6vw,34px);margin-top:10px}
 .hero-mock{margin:34px auto 34px;max-width:520px;border-radius:var(--radio);overflow:hidden;border:1px solid rgba(201,163,91,.55);box-shadow:0 26px 60px rgba(0,0,0,.45)}
@@ -141,6 +141,17 @@ h3{font-size:26px}
 .telefono.play .tarea:nth-child(5),.telefono.play .tarea:nth-child(5) .chk{transition-delay:2.4s}
 .dia-ok{margin-top:10px;font-family:var(--serif);font-style:italic;font-weight:700;font-size:21px;color:var(--verde-3);opacity:0;transition:opacity .6s ease 2.9s}
 .telefono.play .dia-ok{opacity:1}
+
+/* ===== PLAN 21 DÍAS ===== */
+.semanas{display:flex;flex-direction:column;gap:14px;margin-top:28px;text-align:left}
+.semana{position:relative;border:1px solid rgba(201,163,91,.4);border-radius:var(--radio);padding:20px 22px 20px 64px;background:rgba(242,234,219,.04)}
+.semana::before{counter-increment:sem;content:counter(sem);position:absolute;left:18px;top:20px;width:32px;height:32px;border-radius:50%;background:var(--oro-grad);color:var(--verde);
+  font-family:var(--serif);font-weight:700;font-size:19px;display:flex;align-items:center;justify-content:center}
+.semanas{counter-reset:sem}
+.semana .sem-n{font-family:var(--caps);font-weight:600;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--oro)}
+.semana h3{color:var(--crema);font-size:26px;margin:4px 0 6px}
+.semana p{color:rgba(242,234,219,.78);font-size:15.5px}
+.cierre-21{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--crema)}
 
 /* ===== 4 PILARES ===== */
 .partes{display:grid;grid-template-columns:1fr;gap:16px;margin-top:30px;text-align:left}
@@ -262,16 +273,17 @@ h3{font-size:26px}
 <!-- ═════ HERO ═════ -->
 <section class="sec oscuro centro simbolos" id="hero">
   <div class="wrap">
-    <!-- ⚠️ reemplazar img/logo.jpg por el enlace de Impultienda -->
-    <img class="logo rv" src="img/logo.jpg" alt="Método Constante">
+    <!-- ⚠️ reemplazar img/logo-mc.jpg por el enlace de Impultienda -->
+    <img class="logo rv" src="img/logo-mc.jpg" alt="Método Constante">
     <h1 class="hero-h1 rv">Dejá de empezar<br>todos los lunes.</h1>
     <p class="hero-sub oro rv">Esta vez, lo vas a sostener.</p>
     <div class="orn rv"><svg><use href="#hoja"/></svg></div>
-    <p class="lead rv">El ebook <strong style="color:var(--crema);font-weight:600">Un día a la vez</strong>: hábitos sanos, sin dietas y sin culpa.</p>
+    <p class="lead rv">El ebook <strong style="color:var(--crema);font-weight:600">Un día a la vez</strong> con tu plan de <strong style="color:var(--oro-claro);font-weight:600">21 días</strong> para arrancar hábitos sanos, sin dietas y sin culpa.</p>
     <!-- ⚠️ reemplazar img/mockup-1.jpg por el enlace de Impultienda -->
     <img class="hero-mock rv" src="img/mockup-1.jpg" alt="Ebook Un día a la vez · Método Constante">
     <a href="#oferta" class="cta latido rv">Quiero empezar hoy</a>
     <div class="chips rv">
+      <span class="chip">Plan de 21 días</span>
       <span class="chip">14 capítulos</span>
       <span class="chip">5 regalos</span>
       <span class="chip">PDF al instante</span>
@@ -299,12 +311,12 @@ h3{font-size:26px}
 <section class="sec claro centro">
   <div class="wrap">
     <span class="kicker rv">Así es un día con el método</span>
-    <h2 class="rv">Abrís el capítulo y <span class="oro">sabés qué hacer hoy</span></h2>
+    <h2 class="rv">Abrís tu día y <span class="oro">sabés qué hacer hoy</span></h2>
     <p class="lead rv">Pasos chiquitos que entran en tu día.</p>
     <div class="telefono anima">
       <div class="pantalla">
         <div class="hoy">HOY</div>
-        <h3>Capítulo 3</h3>
+        <h3>Día 3 de 21</h3>
         <div class="tarea"><span class="ico">🌅</span><span class="txt"><b>Frase para hoy</b>"Pequeño, pero todos los días."</span><span class="chk">✓</span></div>
         <div class="tarea"><span class="ico">⏱️</span><span class="txt"><b>Mini reto</b>2 minutos de tu hábito. Nada más.</span><span class="chk">✓</span></div>
         <div class="tarea"><span class="ico">🍽️</span><span class="txt"><b>Tu plato</b>mitad verduras, proteína y algo que te guste</span><span class="chk">✓</span></div>
@@ -313,6 +325,23 @@ h3{font-size:26px}
         <div class="dia-ok">Un paso chiquito. Hoy también cuenta.</div>
       </div>
     </div>
+  </div>
+</section>
+
+
+<!-- ═════ PLAN DE 21 DÍAS ═════ -->
+<section class="sec oscuro centro simbolos">
+  <div class="wrap">
+    <span class="kicker rv">Tu plan</span>
+    <h2 class="rv">Tus primeros <span class="oro">21 días</span></h2>
+    <p class="lead rv">Tres semanas, un paso por día. Sin cambiar todo de golpe.</p>
+    <div class="semanas">
+      <div class="semana rv"><div class="sem-n">Semana 1 · Días 1 al 7</div><h3>La mente primero</h3><p>Empezás pequeño: 2 minutos por día.</p></div>
+      <div class="semana rv"><div class="sem-n">Semana 2 · Días 8 al 14</div><h3>Comer mejor</h3><p>El método del plato, sin prohibiciones.</p></div>
+      <div class="semana rv"><div class="sem-n">Semana 3 · Días 15 al 21</div><h3>Moverte y sostenerlo</h3><p>Tu rutina y tu sistema semanal.</p></div>
+    </div>
+    <div class="orn rv"><svg><use href="#hoja"/></svg></div>
+    <p class="cierre-21 rv">Y el día 22… seguís. <span class="oro">Un día a la vez.</span></p>
   </div>
 </section>
 
@@ -409,6 +438,7 @@ h3{font-size:26px}
     <img class="oferta-mock rv" src="img/mockup-2.jpg" alt="Ebook Método Constante con sus regalos">
     <div class="oferta rv">
       <div class="item">📘 Ebook "Un día a la vez" · 14 capítulos <b>INCLUIDO</b></div>
+      <div class="item">🗓️ Plan de 21 días para arrancar <b>INCLUIDO</b></div>
       <div class="item">📅 Tracker de constancia de 30 días <b>GRATIS</b></div>
       <div class="item">🥗 Recetario express <b>GRATIS</b></div>
       <div class="item">🏃 Rutina de 4 semanas <b>GRATIS</b></div>
