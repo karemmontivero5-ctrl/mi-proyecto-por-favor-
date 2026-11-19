@@ -1,0 +1,150 @@
+<!-- DEMO: precio que se tacha + caja de regalo que se abre (se activan al hacer scroll) -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --verde:#1F3B2D;      /* verde oscuro de la marca */
+  --verde-2:#2F6B4A;
+  --crema:#F3EBDD;
+  --crema-2:#FBF7F0;
+  --terracota:#B8683F;  /* acento cálido */
+  --dorado:#D4B06A;
+  --gris:#8A8F88;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Montserrat',sans-serif;background:var(--crema);color:var(--verde);overflow-x:hidden}
+.espacio{height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;color:var(--gris);font-weight:600}
+section{padding:70px 20px;text-align:center}
+.kicker{font-weight:800;letter-spacing:.3em;font-size:13px;color:var(--terracota);text-transform:uppercase}
+h2{font-family:'Playfair Display',serif;font-size:clamp(30px,8vw,44px);line-height:1.1;margin:12px 0 18px}
+h2 .acento{color:var(--terracota)}
+.btn-repetir{margin-top:26px;background:none;border:1.5px solid var(--verde);color:var(--verde);border-radius:999px;padding:8px 18px;font:600 13px 'Montserrat';cursor:pointer}
+
+/* =========================================================
+   1) PRECIO QUE SE TACHA
+   Al entrar en pantalla:
+   1. Se ve el precio "original" grande.
+   2. Una línea lo tacha de izquierda a derecha.
+   3. El precio viejo se achica, sube y queda en gris.
+   4. Aparece el precio real con un pequeño rebote.
+   5. Entra la etiqueta de ahorro.
+   ========================================================= */
+.precio-box{max-width:420px;margin:0 auto;background:var(--crema-2);border-radius:24px;padding:36px 24px;box-shadow:0 10px 30px rgba(31,59,45,.08)}
+.precio-viejo{position:relative;display:inline-block;font-family:'Playfair Display',serif;font-weight:800;font-size:64px;color:var(--verde);
+  transition:font-size .6s ease .9s,color .6s ease .9s,opacity .6s ease .9s}
+.precio-viejo::after{ /* la línea que tacha */
+  content:'';position:absolute;left:-4%;top:52%;height:5px;width:0;background:var(--terracota);border-radius:3px;transform:rotate(-6deg);
+  transition:width .5s ease .3s}
+.precio-nuevo{display:block;font-family:'Playfair Display',serif;font-weight:800;font-size:72px;color:var(--verde-2);line-height:1;
+  max-height:0;opacity:0;transform:scale(.5);overflow:hidden;
+  transition:max-height .5s ease 1.4s,opacity .5s ease 1.4s,transform .6s cubic-bezier(.34,1.56,.64,1) 1.4s}
+.ahorro{display:inline-block;margin-top:16px;background:var(--terracota);color:#fff;font-weight:800;border-radius:999px;padding:10px 18px;font-size:15px;
+  opacity:0;transform:translateY(16px);transition:all .5s ease 2s}
+
+/* estado "activo": se agrega la clase .play con JavaScript cuando la sección se ve */
+.precio-box.play .precio-viejo{font-size:24px;color:var(--gris);opacity:.85}
+.precio-box.play .precio-viejo::after{width:108%}
+.precio-box.play .precio-nuevo{max-height:120px;opacity:1;transform:scale(1);margin-top:6px}
+.precio-box.play .ahorro{opacity:1;transform:none}
+
+/* =========================================================
+   2) CAJA DE REGALO QUE SE ABRE
+   Está hecha solo con formas (divs), sin imágenes:
+   - .rayos  = los rayos de luz detrás (gradiente cónico)
+   - .tapa   = la tapa con su moño
+   - .cuerpo = la caja con la cinta
+   Al entrar en pantalla: la caja tiembla, la tapa salta y gira,
+   los rayos aparecen y giran, y después entran los regalos.
+   ========================================================= */
+.regalo{position:relative;width:240px;height:260px;margin:30px auto 0}
+.rayos{position:absolute;left:50%;top:55%;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;
+  background:repeating-conic-gradient(rgba(212,176,106,.35) 0 8deg,transparent 8deg 22deg);
+  -webkit-mask:radial-gradient(circle,#000 20%,transparent 68%);mask:radial-gradient(circle,#000 20%,transparent 68%);
+  opacity:0;transform:scale(.3);transition:opacity .6s ease .8s,transform .8s ease .8s;z-index:0}
+.cuerpo{position:absolute;bottom:0;left:20px;width:200px;height:150px;background:var(--terracota);border-radius:16px;z-index:2}
+.cuerpo::before,.tapa::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:30px;margin-left:-15px;background:var(--dorado)}
+.tapa{position:absolute;bottom:140px;left:6px;width:228px;height:44px;background:#C9774B;border-radius:12px;z-index:3;transform-origin:20% 100%;
+  transition:transform .7s cubic-bezier(.34,1.56,.64,1) .6s}
+.mono{position:absolute;left:50%;top:-34px;width:56px;height:38px;margin-left:-28px;border:9px solid var(--dorado);border-bottom:none;border-radius:40px 40px 0 0}
+
+.regalo.play .cuerpo{animation:temblor .45s ease 0s 1}
+.regalo.play .tapa{transform:translate(18px,-70px) rotate(-16deg)}
+.regalo.play .rayos{opacity:1;transform:scale(1);animation:girar 18s linear 1.4s infinite}
+@keyframes temblor{0%,100%{transform:rotate(0)}20%{transform:rotate(-4deg)}40%{transform:rotate(4deg)}60%{transform:rotate(-3deg)}80%{transform:rotate(2deg)}}
+@keyframes girar{from{transform:scale(1) rotate(0)}to{transform:scale(1) rotate(360deg)}}
+
+/* tarjetas de bonos que entran escalonadas después de abrir la caja */
+.bonos{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:460px;margin:40px auto 0;text-align:left}
+.bono{background:#fff;border-radius:18px;padding:18px;opacity:0;transform:translateY(30px);transition:all .5s ease}
+.bono b{display:block;font-size:12px;letter-spacing:.2em;color:var(--terracota);margin-bottom:6px}
+.bono span{font-weight:800;font-size:15px;line-height:1.25}
+.bono s{display:block;margin-top:10px;color:var(--gris);font-size:13px}
+.bono em{font-style:normal;font-weight:800;color:var(--verde-2);font-size:13px}
+.bonos.play .bono{opacity:1;transform:none}
+.bonos.play .bono:nth-child(1){transition-delay:1.6s}
+.bonos.play .bono:nth-child(2){transition-delay:1.8s}
+.bonos.play .bono:nth-child(3){transition-delay:2.0s}
+.bonos.play .bono:nth-child(4){transition-delay:2.2s}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="espacio">⬇️ Bajá despacio para ver las animaciones</div>
+
+<!-- ===== 1) PRECIO ===== -->
+<section>
+  <div class="kicker">Precio de lanzamiento</div>
+  <h2>Todo esto <span class="acento">por</span></h2>
+  <div class="precio-box anima">
+    <div class="precio-viejo">$35.000</div>
+    <span class="precio-nuevo">$14.990</span>
+    <div class="ahorro">Te llevás $35.000 de valor por $14.990</div>
+  </div>
+  <button class="btn-repetir" data-repetir=".precio-box">↺ Ver de nuevo</button>
+</section>
+
+<div class="espacio">⬇️ Seguí bajando</div>
+
+<!-- ===== 2) CAJA DE REGALO ===== -->
+<section>
+  <div class="kicker">Con tu ebook</div>
+  <h2>Tenés <span class="acento">5 regalos</span><br>esperándote</h2>
+  <div class="regalo anima">
+    <div class="rayos"></div>
+    <div class="tapa"><div class="mono"></div></div>
+    <div class="cuerpo"></div>
+  </div>
+  <div class="bonos anima">
+    <div class="bono"><b>REGALO 1</b><span>Tracker de constancia de 30 días</span><s>$5.000</s><em>GRATIS con tu compra</em></div>
+    <div class="bono"><b>REGALO 2</b><span>Recetario express</span><s>$6.000</s><em>GRATIS con tu compra</em></div>
+    <div class="bono"><b>REGALO 3</b><span>Rutina de 4 semanas</span><s>$7.000</s><em>GRATIS con tu compra</em></div>
+    <div class="bono"><b>REGALO 4</b><span>Planificador semanal</span><s>$4.000</s><em>GRATIS con tu compra</em></div>
+  </div>
+  <button class="btn-repetir" data-repetir=".regalo,.bonos">↺ Ver de nuevo</button>
+</section>
+
+<div class="espacio">Fin de la demo</div>
+
+<script>
+/* El "truco": IntersectionObserver avisa cuando un elemento entra en pantalla.
+   En ese momento le agregamos la clase .play y el CSS hace la animación. */
+(function(){
+  var els=document.querySelectorAll('.anima');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('play')});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('play');io.unobserve(e.target);}
+    });
+  },{threshold:.45});
+  els.forEach(function(e){io.observe(e)});
+
+  /* botones "ver de nuevo" (solo para la demo) */
+  document.querySelectorAll('[data-repetir]').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll(b.dataset.repetir).forEach(function(el){
+        el.classList.remove('play'); void el.offsetWidth; /* reinicia */
+        setTimeout(function(){el.classList.add('play')},50);
+      });
+    });
+  });
+})();
+</script>
