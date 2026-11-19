@@ -196,7 +196,7 @@ h3{font-size:26px}
 
 .bonos{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px;text-align:left}
 .bono{background:var(--blanco);border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra);opacity:0;transform:translateY(30px);transition:opacity .5s ease,transform .5s ease}
-.bono .img-ph{border:none;border-bottom:1.5px dashed var(--oro);aspect-ratio:1/1}
+.bono .bono-img{width:100%;aspect-ratio:1/1;object-fit:cover;border-bottom:2px solid var(--oro)}
 .bono .info{padding:16px 15px 18px}
 .bono .n{font-family:var(--caps);font-weight:600;font-size:11.5px;letter-spacing:.24em;color:var(--oro-osc)}
 .bono h4{font-family:var(--serif);font-weight:700;font-size:21px;line-height:1.15;color:var(--verde);margin:6px 0 8px}
@@ -204,7 +204,8 @@ h3{font-size:26px}
 .bono .gratis{margin-top:12px;font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--verde-ok)}
 .bono .gratis s{color:var(--gris);font-weight:500;margin-right:6px}
 .bono.ancho{grid-column:1/-1}
-.bono.ancho .img-ph{aspect-ratio:2/1}
+.bono.ancho{display:grid;grid-template-columns:46% 1fr;align-items:center}
+.bono.ancho .bono-img{height:100%;border-bottom:none;border-right:2px solid var(--oro)}
 .bonos.play .bono{opacity:1;transform:none}
 .bonos.play .bono:nth-child(1){transition-delay:.1s}
 .bonos.play .bono:nth-child(2){transition-delay:.25s}
@@ -419,11 +420,11 @@ h3{font-size:26px}
     <h2 class="rv">Tenés <span class="oro">5 regalos</span> esperándote</h2>
     <p class="lead rv">Gratis con tu ebook.</p>
     <div class="bonos anima">
-      <div class="bono"><div class="img-ph">Imagen<br>Regalo 1</div><div class="info"><div class="n">REGALO 1</div><h4>Tracker de constancia de 30 días</h4><p>Imprimible, con una frase para cada día.</p><div class="gratis"><s>$5.000</s>GRATIS</div></div></div>
-      <div class="bono"><div class="img-ph">Imagen<br>Regalo 2</div><div class="info"><div class="n">REGALO 2</div><h4>Recetario express</h4><p>20 comidas sanas en 15 minutos.</p><div class="gratis"><s>$5.000</s>GRATIS</div></div></div>
-      <div class="bono"><div class="img-ph">Imagen<br>Regalo 3</div><div class="info"><div class="n">REGALO 3</div><h4>Rutina de 4 semanas</h4><p>Para principiantes, en casa y en el gym.</p><div class="gratis"><s>$4.000</s>GRATIS</div></div></div>
-      <div class="bono"><div class="img-ph">Imagen<br>Regalo 4</div><div class="info"><div class="n">REGALO 4</div><h4>Planificador semanal + lista del súper</h4><p>Tu semana organizada, sin improvisar.</p><div class="gratis"><s>$3.000</s>GRATIS</div></div></div>
-      <div class="bono ancho"><div class="img-ph">Imagen<br>Regalo 5</div><div class="info"><div class="n">REGALO 5</div><h4>Diario de bienestar emocional: 30 días para volver a vos</h4><p>Preguntas para escribir, gratitud y frases para los días difíciles.</p><div class="gratis"><s>$3.000</s>GRATIS</div></div></div>
+      <div class="bono"><img class="bono-img" src="https://sb.impultienda.ar/storage/v1/object/public/store-resources/e884d181-d6c8-4eae-9b6b-0627b3264dc5/1795101533526_tracker-de-constancia-edicion-premium.webp" alt="Tracker de constancia de 30 días" loading="lazy"><div class="info"><div class="n">REGALO 1</div><h4>Tracker de constancia de 30 días</h4><p>Imprimible, con una frase para cada día.</p><div class="gratis"><s>$5.000</s>GRATIS</div></div></div>
+      <div class="bono"><img class="bono-img" src="https://sb.impultienda.ar/storage/v1/object/public/store-resources/e884d181-d6c8-4eae-9b6b-0627b3264dc5/1795101529759_recetario-express-comidas-sanas.webp" alt="Recetario express" loading="lazy"><div class="info"><div class="n">REGALO 2</div><h4>Recetario express</h4><p>20 comidas sanas en 15 minutos.</p><div class="gratis"><s>$5.000</s>GRATIS</div></div></div>
+      <div class="bono"><img class="bono-img" src="https://sb.impultienda.ar/storage/v1/object/public/store-resources/e884d181-d6c8-4eae-9b6b-0627b3264dc5/1795101531878_rutina-de-cuatro-semanas-en-casa.webp" alt="Rutina de 4 semanas" loading="lazy"><div class="info"><div class="n">REGALO 3</div><h4>Rutina de 4 semanas</h4><p>Para principiantes, en casa y en el gym.</p><div class="gratis"><s>$4.000</s>GRATIS</div></div></div>
+      <div class="bono"><img class="bono-img" src="https://sb.impultienda.ar/storage/v1/object/public/store-resources/e884d181-d6c8-4eae-9b6b-0627b3264dc5/1795101527658_planificador-semanal-saludable-en-verde-y-dorado.webp" alt="Planificador semanal + lista del súper" loading="lazy"><div class="info"><div class="n">REGALO 4</div><h4>Planificador semanal + lista del súper</h4><p>Tu semana organizada, sin improvisar.</p><div class="gratis"><s>$3.000</s>GRATIS</div></div></div>
+      <div class="bono ancho"><img class="bono-img" src="https://sb.impultienda.ar/storage/v1/object/public/store-resources/e884d181-d6c8-4eae-9b6b-0627b3264dc5/1795101525998_diario-de-bienestar-emocional.webp" alt="Diario de bienestar emocional" loading="lazy"><div class="info"><div class="n">REGALO 5</div><h4>Diario de bienestar emocional: 30 días para volver a vos</h4><p>Preguntas para escribir, gratitud y frases para los días difíciles.</p><div class="gratis"><s>$3.000</s>GRATIS</div></div></div>
     </div>
   </div>
 </section>
