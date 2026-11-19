@@ -1,160 +1,181 @@
 <!-- ═══════════════════════════════════════════════════════════════
      LANDING · "Un día a la vez" · Método Constante
+     Estilo: verde profundo + dorado + crema (igual al logo y banners)
      Para pegar en Impultienda → Diseño → Contenido
 
-     ⚠️ ANTES DE PUBLICAR, REVISAR:
-     1. PRECIOS: buscá "$14.990" y "$35.000" y reemplazalos por los reales.
-        También los valores de cada regalo ($5.000, $4.000, etc.).
-     2. GARANTÍA: confirmá que Impultienda permite 7 días de devolución.
-     3. IMÁGENES: los recuadros "IMAGEN" se reemplazan por las fotos
-        reales (portada del ebook y portadas de los regalos).
+     ⚠️ ANTES DE PUBLICAR:
+     1. IMÁGENES: subí a Impultienda los archivos de la carpeta img/
+        (logo.jpg, mockup-1.jpg, mockup-2.jpg) y reemplazá cada
+        src="img/..." por el enlace que te da Impultienda.
+     2. PRECIOS: buscá "$14.990" y "$35.000" y poné los reales.
+        También el valor de cada regalo ($5.000, $4.000, etc.).
+     3. GARANTÍA: confirmá que Impultienda permite 7 días.
      ═══════════════════════════════════════════════════════════════ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --verde:#1F3B2D;
-  --verde-2:#2F6B4A;
-  --verde-3:#4E8A65;
-  --crema:#F3EBDD;
-  --crema-2:#FBF7F0;
+  --verde:#0E2818;        /* fondo del logo */
+  --verde-2:#143823;
+  --verde-3:#1E4D32;
+  --verde-ok:#2F6B4A;
+  --oro:#C9A35B;
+  --oro-claro:#E6CB8E;
+  --oro-osc:#A07A38;
+  --oro-grad:linear-gradient(135deg,#A9823C 0%,#E8CD8F 42%,#B88E45 68%,#E3C68A 100%);
+  --crema:#F2EADB;
+  --crema-2:#FAF6EE;
   --blanco:#FFFFFF;
-  --terracota:#B8683F;
-  --terracota-2:#C9774B;
-  --dorado:#D4B06A;
-  --tx:#22302A;
-  --tx-mut:#66706A;
-  --gris:#8A8F88;
-  --serif:'Playfair Display',Georgia,serif;
+  --tx:#1E2B22;
+  --tx-mut:#5F675F;
+  --gris:#8C8F86;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --caps:'Cinzel',Georgia,serif;
   --sans:'Montserrat',system-ui,sans-serif;
-  --radio:24px;
-  --sombra:0 12px 34px rgba(31,59,45,.10);
+  --radio:22px;
+  --sombra:0 14px 36px rgba(14,40,24,.12);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--crema);color:var(--tx);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:var(--sans);background:var(--crema);color:var(--tx);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;display:block}
-.sec{position:relative;padding:76px 20px;overflow:hidden}
+.sec{position:relative;padding:80px 22px;overflow:hidden}
 .wrap{max-width:640px;margin:0 auto;position:relative;z-index:2}
 .wrap-wide{max-width:960px;margin:0 auto;position:relative;z-index:2}
 .centro{text-align:center}
-.puntos::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
-  background-image:radial-gradient(circle,rgba(184,104,63,.13) 2px,transparent 2.5px);background-size:46px 46px}
+
+/* fondos */
 .oscuro{background:var(--verde);color:var(--crema)}
-.salvia{background:#EEF0E4}
+.oscuro::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,.022) 0 1px,transparent 1px 3px),
+             repeating-linear-gradient(90deg,rgba(255,255,255,.018) 0 1px,transparent 1px 3px),
+             radial-gradient(ellipse at 80% 0%,rgba(230,203,142,.10),transparent 60%)}
+.lino{background:var(--crema)}
+.lino::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:repeating-linear-gradient(0deg,rgba(14,40,24,.025) 0 1px,transparent 1px 3px),
+             repeating-linear-gradient(90deg,rgba(14,40,24,.02) 0 1px,transparent 1px 3px)}
+.claro{background:var(--crema-2)}
 
-.kicker{display:block;font-weight:800;font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--terracota);margin-bottom:14px}
-.oscuro .kicker{color:var(--dorado)}
-h1,h2,h3{font-family:var(--serif);font-weight:800;line-height:1.08;color:var(--verde)}
+/* tipografía */
+.kicker{display:block;font-family:var(--caps);font-weight:600;font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--oro-osc);margin-bottom:14px}
+.oscuro .kicker{color:var(--oro)}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;color:var(--verde)}
 .oscuro h1,.oscuro h2,.oscuro h3{color:var(--crema)}
-h1{font-size:clamp(40px,11vw,68px)}
-h2{font-size:clamp(31px,8vw,48px);margin-bottom:18px}
-h3{font-size:22px}
-.acento{color:var(--terracota)}
-.oscuro .acento{color:var(--dorado)}
-.lead{font-size:clamp(17px,4.4vw,20px);color:var(--tx-mut);line-height:1.6}
-.oscuro .lead{color:rgba(243,235,221,.82)}
+h1{font-size:clamp(50px,13vw,84px);font-weight:600}
+h2{font-size:clamp(38px,9.5vw,56px);margin-bottom:16px}
+h3{font-size:26px}
+.oro{color:var(--oro-osc);font-style:italic}
+.oscuro .oro{color:var(--oro)}
+@supports(-webkit-background-clip:text){
+  .oro{background:var(--oro-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+}
+.lead{font-size:clamp(16.5px,4.3vw,19px);color:var(--tx-mut);line-height:1.65}
+.oscuro .lead{color:rgba(242,234,219,.78)}
 
-/* ===== botón ===== */
+/* adorno: línea dorada con hojita */
+.orn{display:flex;align-items:center;justify-content:center;gap:12px;margin:18px auto 22px;max-width:300px}
+.orn::before,.orn::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--oro))}
+.orn::after{background:linear-gradient(90deg,var(--oro),transparent)}
+.orn svg{width:26px;height:18px;flex:0 0 auto}
+
+/* botón dorado */
 .cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;max-width:460px;min-height:64px;padding:18px 28px;
-  background:var(--verde-2);color:#fff;border-radius:999px;font-family:var(--sans);font-weight:800;font-size:clamp(16px,4.4vw,19px);letter-spacing:.08em;
-  text-transform:uppercase;text-decoration:none;box-shadow:0 10px 24px rgba(47,107,74,.35);transition:transform .15s ease,box-shadow .15s ease}
-.cta:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(47,107,74,.42)}
+  background:var(--oro-grad);color:var(--verde);border-radius:999px;font-family:var(--caps);font-weight:700;font-size:clamp(15px,4.2vw,18px);letter-spacing:.14em;
+  text-transform:uppercase;text-decoration:none;box-shadow:0 10px 26px rgba(160,122,56,.35),inset 0 1px 0 rgba(255,255,255,.45);transition:transform .15s ease,box-shadow .15s ease}
+.cta:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(160,122,56,.45),inset 0 1px 0 rgba(255,255,255,.45)}
 .cta:active{transform:translateY(1px)}
-.oscuro .cta{background:var(--terracota);box-shadow:0 10px 24px rgba(0,0,0,.25)}
-@media(prefers-reduced-motion:no-preference){.cta.latido{animation:latido 2.6s ease-in-out infinite}}
+.cta.verde{background:var(--verde-2);color:var(--oro-claro);box-shadow:0 10px 26px rgba(14,40,24,.3)}
+@media(prefers-reduced-motion:no-preference){.cta.latido{animation:latido 2.8s ease-in-out infinite}}
 @keyframes latido{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
 .cta-nota{margin-top:14px;font-size:14px;color:var(--tx-mut)}
-.oscuro .cta-nota{color:rgba(243,235,221,.75)}
+.oscuro .cta-nota{color:rgba(242,234,219,.7)}
 
-/* ===== marcador de imagen ===== */
-.img-ph{display:flex;align-items:center;justify-content:center;text-align:center;padding:14px;border-radius:18px;border:2px dashed var(--terracota);
-  background:repeating-linear-gradient(45deg,rgba(184,104,63,.06) 0 10px,rgba(184,104,63,.12) 10px 20px);color:var(--terracota);
-  font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;line-height:1.4}
+/* marcador de imagen */
+.img-ph{display:flex;align-items:center;justify-content:center;text-align:center;padding:14px;border:1.5px dashed var(--oro);
+  background:repeating-linear-gradient(45deg,rgba(201,163,91,.06) 0 10px,rgba(201,163,91,.13) 10px 20px);color:var(--oro-osc);
+  font-family:var(--caps);font-weight:600;font-size:11px;letter-spacing:.12em;text-transform:uppercase;line-height:1.5}
 
-/* ===== aparición suave ===== */
-.rv{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+/* aparición suave */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .rv.play{opacity:1;transform:none}
 
 /* ===== HERO ===== */
-#hero{padding-top:56px}
-.hero-sub{font-family:var(--serif);font-style:italic;font-weight:700;font-size:clamp(21px,5.6vw,28px);color:var(--terracota);margin-top:14px}
-.hero-img{max-width:330px;margin:32px auto 30px;aspect-ratio:3/4}
-.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:18px}
-.chip{background:var(--crema-2);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;color:var(--verde)}
+#hero{padding-top:30px;padding-bottom:70px}
+.logo{width:min(300px,72vw);margin:0 auto -6px;-webkit-mask-image:radial-gradient(circle,#000 52%,transparent 71%);mask-image:radial-gradient(circle,#000 52%,transparent 71%)}
+.hero-sub{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(25px,6.6vw,34px);margin-top:10px}
+.hero-mock{margin:34px auto 34px;max-width:520px;border-radius:var(--radio);overflow:hidden;border:1px solid rgba(201,163,91,.55);box-shadow:0 26px 60px rgba(0,0,0,.45)}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:20px}
+.chip{border:1px solid rgba(201,163,91,.5);border-radius:999px;padding:7px 15px;font-size:13px;font-weight:500;color:var(--oro-claro)}
 
 /* ===== FRASES ===== */
-.frases{display:flex;flex-direction:column;gap:12px;margin-top:30px}
-.frase{background:var(--blanco);border-radius:20px 20px 20px 6px;padding:16px 20px;text-align:left;font-weight:600;font-size:17px;color:var(--verde);box-shadow:var(--sombra)}
-.frase:nth-child(even){border-radius:20px 20px 6px 20px;margin-left:auto}
-.frase{max-width:88%}
-.cierre-frases{margin-top:30px;font-size:18px;font-weight:600;color:var(--verde)}
-.cierre-frases strong{color:var(--terracota)}
+.frases{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.frase{max-width:88%;background:var(--blanco);border-radius:20px 20px 20px 6px;padding:16px 20px;text-align:left;font-family:var(--serif);font-style:italic;font-weight:600;font-size:21px;line-height:1.3;color:var(--verde);box-shadow:var(--sombra);border-left:3px solid var(--oro)}
+.frase:nth-child(even){margin-left:auto;border-radius:20px 20px 6px 20px;border-left:none;border-right:3px solid var(--oro)}
+.cierre-frases{margin-top:30px;font-family:var(--serif);font-size:26px;font-weight:600;line-height:1.25;color:var(--verde)}
 
-/* ===== TELÉFONO: un día con el método ===== */
-.telefono{max-width:370px;margin:34px auto 0;background:var(--verde);border-radius:46px;padding:14px;box-shadow:0 24px 50px rgba(31,59,45,.30)}
-.pantalla{background:var(--crema-2);border-radius:34px;padding:30px 18px 24px}
-.pantalla .hoy{font-weight:800;letter-spacing:.3em;font-size:12px;color:var(--terracota)}
-.pantalla h3{font-size:28px;margin:6px 0 20px}
-.tarea{display:flex;align-items:center;gap:12px;background:var(--blanco);border-radius:18px;padding:13px 14px;margin-bottom:12px;text-align:left;
-  border-bottom:4px solid transparent;transition:border-color .4s ease}
-.tarea .ico{flex:0 0 46px;height:46px;border-radius:50%;background:#F6E6DA;display:flex;align-items:center;justify-content:center;font-size:22px}
-.tarea .txt{flex:1;font-size:15px;line-height:1.35;color:var(--tx)}
-.tarea .txt b{display:block;font-size:16px;color:var(--verde);font-weight:700}
-.tarea .chk{flex:0 0 32px;height:32px;border-radius:50%;border:2px solid #CFD5CC;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;
+/* ===== TELÉFONO ===== */
+.telefono{max-width:370px;margin:34px auto 0;background:var(--verde);border-radius:46px;padding:13px;border:1.5px solid var(--oro);box-shadow:0 26px 54px rgba(14,40,24,.35)}
+.pantalla{background:var(--crema-2);border-radius:34px;padding:28px 16px 22px}
+.pantalla .hoy{font-family:var(--caps);font-weight:600;letter-spacing:.32em;font-size:12px;color:var(--oro-osc)}
+.pantalla h3{font-size:34px;margin:4px 0 18px}
+.tarea{display:flex;align-items:center;gap:12px;background:var(--blanco);border-radius:18px;padding:12px 13px;margin-bottom:11px;text-align:left;border-bottom:3px solid transparent;transition:border-color .4s ease}
+.tarea .ico{flex:0 0 44px;height:44px;border-radius:50%;background:#F3EAD7;display:flex;align-items:center;justify-content:center;font-size:21px}
+.tarea .txt{flex:1;font-size:14.5px;line-height:1.35;color:var(--tx)}
+.tarea .txt b{display:block;font-size:15.5px;color:var(--verde);font-weight:700}
+.tarea .chk{flex:0 0 30px;height:30px;border-radius:50%;border:2px solid #D6D2C4;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;
   transform:scale(.8);transition:background .35s ease,border-color .35s ease,transform .35s cubic-bezier(.34,1.56,.64,1)}
-.telefono.play .tarea{border-color:var(--verde-3)}
-.telefono.play .tarea .chk{background:var(--verde-2);border-color:var(--verde-2);transform:scale(1)}
+.telefono.play .tarea{border-color:var(--oro)}
+.telefono.play .tarea .chk{background:var(--verde-3);border-color:var(--verde-3);transform:scale(1)}
 .telefono.play .tarea:nth-child(1),.telefono.play .tarea:nth-child(1) .chk{transition-delay:.4s}
 .telefono.play .tarea:nth-child(2),.telefono.play .tarea:nth-child(2) .chk{transition-delay:.9s}
 .telefono.play .tarea:nth-child(3),.telefono.play .tarea:nth-child(3) .chk{transition-delay:1.4s}
 .telefono.play .tarea:nth-child(4),.telefono.play .tarea:nth-child(4) .chk{transition-delay:1.9s}
 .telefono.play .tarea:nth-child(5),.telefono.play .tarea:nth-child(5) .chk{transition-delay:2.4s}
-.dia-ok{margin-top:10px;font-weight:800;font-size:18px;color:var(--verde-2);opacity:0;transition:opacity .6s ease 2.9s}
+.dia-ok{margin-top:10px;font-family:var(--serif);font-style:italic;font-weight:700;font-size:21px;color:var(--verde-3);opacity:0;transition:opacity .6s ease 2.9s}
 .telefono.play .dia-ok{opacity:1}
 
-/* ===== 4 PARTES ===== */
+/* ===== 4 PILARES ===== */
 .partes{display:grid;grid-template-columns:1fr;gap:16px;margin-top:30px;text-align:left}
-.parte{background:rgba(243,235,221,.07);border:1px solid rgba(243,235,221,.18);border-radius:var(--radio);padding:24px}
-.parte .num{font-weight:800;font-size:12px;letter-spacing:.25em;color:var(--dorado)}
-.parte h3{color:var(--crema);margin:6px 0 10px;font-size:24px}
-.parte p{color:rgba(243,235,221,.8);font-size:15.5px}
+.parte{background:rgba(242,234,219,.04);border:1px solid rgba(201,163,91,.35);border-radius:var(--radio);padding:24px}
+.parte .num{font-family:var(--caps);font-weight:600;font-size:12px;letter-spacing:.28em;color:var(--oro)}
+.parte h3{color:var(--crema);margin:6px 0 10px;font-size:29px}
+.parte p{color:rgba(242,234,219,.78);font-size:15.5px}
 @media(min-width:720px){.partes{grid-template-columns:1fr 1fr}}
 
 /* ===== COMPARATIVA ===== */
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px;text-align:left}
-.vs-col{border-radius:var(--radio);padding:20px 16px}
+.vs-col{border-radius:var(--radio);padding:20px 15px}
 .vs-mal{background:var(--blanco);box-shadow:var(--sombra)}
-.vs-bien{background:var(--verde);color:var(--crema)}
-.vs-col h4{font-family:var(--sans);font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
-.vs-mal h4{color:var(--terracota)}
-.vs-bien h4{color:var(--dorado)}
+.vs-bien{background:var(--verde);color:var(--crema);border:1px solid var(--oro)}
+.vs-col h4{font-family:var(--caps);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
+.vs-mal h4{color:var(--gris)}
+.vs-bien h4{color:var(--oro)}
 .vs-col li{list-style:none;font-size:14.5px;line-height:1.4;margin-bottom:10px;padding-left:22px;position:relative}
 .vs-mal li{color:var(--tx-mut)}
-.vs-mal li::before{content:'✕';position:absolute;left:0;color:var(--terracota);font-weight:800}
-.vs-bien li::before{content:'✓';position:absolute;left:0;color:var(--dorado);font-weight:800}
+.vs-mal li::before{content:'✕';position:absolute;left:0;color:var(--gris);font-weight:700}
+.vs-bien li::before{content:'✓';position:absolute;left:0;color:var(--oro);font-weight:700}
 
 /* ===== ÍNDICE ===== */
-.indice{margin-top:28px;background:var(--blanco);border-radius:var(--radio);padding:10px 22px;box-shadow:var(--sombra);text-align:left}
-.indice .parte-ttl{font-weight:800;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracota);padding:18px 0 6px}
-.indice .cap{display:flex;gap:14px;padding:11px 0;border-bottom:1px dashed #E3DCCF;font-size:15.5px;color:var(--tx)}
+.indice{margin-top:28px;background:var(--blanco);border-radius:var(--radio);padding:10px 22px;box-shadow:var(--sombra);text-align:left;border-top:3px solid var(--oro)}
+.indice .parte-ttl{font-family:var(--caps);font-weight:600;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--oro-osc);padding:18px 0 6px}
+.indice .cap{display:flex;gap:14px;padding:11px 0;border-bottom:1px solid #EEE7D8;font-size:15.5px;color:var(--tx)}
 .indice .cap:last-child{border-bottom:none}
-.indice .cap span{flex:0 0 26px;font-family:var(--serif);font-weight:800;color:var(--verde-2)}
+.indice .cap span{flex:0 0 28px;font-family:var(--serif);font-weight:700;font-size:19px;color:var(--oro-osc);line-height:1.2}
 .incluye{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}
 .incluye div{background:var(--blanco);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:600;color:var(--verde);box-shadow:var(--sombra)}
 
-/* ===== CAJA DE REGALO ===== */
+/* ===== CAJA DE REGALO (verde + cinta dorada) ===== */
 .regalo{position:relative;width:240px;height:260px;margin:100px auto 0}
 .rayos{position:absolute;left:50%;top:55%;width:560px;height:560px;margin:-280px 0 0 -280px;border-radius:50%;
-  background:repeating-conic-gradient(rgba(212,176,106,.38) 0 8deg,transparent 8deg 22deg);
+  background:repeating-conic-gradient(rgba(201,163,91,.40) 0 8deg,transparent 8deg 22deg);
   -webkit-mask:radial-gradient(circle,#000 18%,transparent 68%);mask:radial-gradient(circle,#000 18%,transparent 68%);
   opacity:0;transform:scale(.3);transition:opacity .6s ease .8s,transform .8s ease .8s;z-index:0}
-.cuerpo{position:absolute;bottom:0;left:20px;width:200px;height:150px;background:var(--terracota);border-radius:16px;z-index:2}
-.cuerpo::before,.tapa::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:30px;margin-left:-15px;background:var(--dorado)}
-.tapa{position:absolute;bottom:140px;left:6px;width:228px;height:44px;background:var(--terracota-2);border-radius:12px;z-index:3;transform-origin:20% 100%;
+.cuerpo{position:absolute;bottom:0;left:20px;width:200px;height:150px;background:linear-gradient(160deg,var(--verde-3),var(--verde));border-radius:14px;z-index:2;box-shadow:0 16px 30px rgba(14,40,24,.35)}
+.cuerpo::before,.tapa::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:30px;margin-left:-15px;background:var(--oro-grad)}
+.tapa{position:absolute;bottom:140px;left:6px;width:228px;height:44px;background:linear-gradient(160deg,#28603F,var(--verde-2));border-radius:10px;z-index:3;transform-origin:20% 100%;
   transition:transform .7s cubic-bezier(.34,1.56,.64,1) .6s}
-.mono{position:absolute;left:50%;top:-34px;width:56px;height:38px;margin-left:-28px;border:9px solid var(--dorado);border-bottom:none;border-radius:40px 40px 0 0}
+.mono{position:absolute;left:50%;top:-34px;width:56px;height:38px;margin-left:-28px;border:9px solid var(--oro);border-bottom:none;border-radius:40px 40px 0 0}
 .regalo.play .cuerpo{animation:temblor .45s ease}
 .regalo.play .tapa{transform:translate(18px,-70px) rotate(-16deg)}
 .regalo.play .rayos{opacity:1;transform:scale(1);animation:girar 18s linear 1.4s infinite}
@@ -163,13 +184,13 @@ h3{font-size:22px}
 
 .bonos{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:40px;text-align:left}
 .bono{background:var(--blanco);border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra);opacity:0;transform:translateY(30px);transition:opacity .5s ease,transform .5s ease}
-.bono .img-ph{border-radius:0;border:none;border-bottom:2px dashed var(--terracota);aspect-ratio:1/1;font-size:11px}
-.bono .info{padding:16px 16px 18px}
-.bono .n{font-weight:800;font-size:12px;letter-spacing:.22em;color:var(--terracota)}
-.bono h4{font-family:var(--sans);font-weight:800;font-size:16px;line-height:1.25;color:var(--verde);margin:6px 0 8px}
+.bono .img-ph{border:none;border-bottom:1.5px dashed var(--oro);aspect-ratio:1/1}
+.bono .info{padding:16px 15px 18px}
+.bono .n{font-family:var(--caps);font-weight:600;font-size:11.5px;letter-spacing:.24em;color:var(--oro-osc)}
+.bono h4{font-family:var(--serif);font-weight:700;font-size:21px;line-height:1.15;color:var(--verde);margin:6px 0 8px}
 .bono p{font-size:14px;color:var(--tx-mut);line-height:1.45}
-.bono .gratis{margin-top:12px;font-size:13px;font-weight:800;letter-spacing:.04em;color:var(--verde-2)}
-.bono .gratis s{color:var(--gris);font-weight:600;margin-right:6px}
+.bono .gratis{margin-top:12px;font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--verde-ok)}
+.bono .gratis s{color:var(--gris);font-weight:500;margin-right:6px}
 .bono.ancho{grid-column:1/-1}
 .bono.ancho .img-ph{aspect-ratio:2/1}
 .bonos.play .bono{opacity:1;transform:none}
@@ -181,92 +202,105 @@ h3{font-size:22px}
 @media(max-width:380px){.bonos{grid-template-columns:1fr}}
 
 /* ===== OFERTA + PRECIO ANIMADO ===== */
-.oferta{max-width:460px;margin:30px auto 0;background:var(--crema-2);border-radius:28px;padding:30px 22px;box-shadow:0 20px 44px rgba(0,0,0,.22);color:var(--tx)}
-.item{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:13px 0;border-bottom:1.5px dashed #E1D7C6;text-align:left;font-size:15.5px;line-height:1.4}
-.item b{flex:0 0 auto;font-weight:800;font-size:14px;letter-spacing:.04em;color:var(--verde-2)}
-.valor{margin-top:20px;font-size:15px;color:var(--tx-mut)}
-.precio-box{margin-top:6px}
-.precio-viejo{position:relative;display:inline-block;font-family:var(--serif);font-weight:800;font-size:60px;color:var(--verde);
+.oferta-mock{max-width:420px;margin:26px auto 0;border-radius:var(--radio);overflow:hidden;border:1px solid rgba(201,163,91,.55);box-shadow:0 22px 50px rgba(0,0,0,.4)}
+.oferta{max-width:460px;margin:26px auto 0;background:var(--crema-2);border-radius:28px;padding:30px 22px;box-shadow:0 20px 44px rgba(0,0,0,.3);color:var(--tx);border-top:4px solid var(--oro)}
+.item{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:13px 0;border-bottom:1px solid #EAE2D1;text-align:left;font-size:15.5px;line-height:1.4}
+.item b{flex:0 0 auto;font-family:var(--caps);font-weight:600;font-size:12.5px;letter-spacing:.1em;color:var(--verde-ok);padding-top:2px}
+.valor{margin-top:20px;font-family:var(--caps);font-size:12px;letter-spacing:.24em;color:var(--tx-mut)}
+.precio-box{margin-top:4px}
+.precio-viejo{position:relative;display:inline-block;font-family:var(--serif);font-weight:700;font-size:66px;color:var(--verde);
   transition:font-size .6s ease .9s,color .6s ease .9s,opacity .6s ease .9s}
-.precio-viejo::after{content:'';position:absolute;left:-4%;top:52%;height:5px;width:0;background:var(--terracota);border-radius:3px;transform:rotate(-6deg);transition:width .5s ease .3s}
-.precio-nuevo{display:block;font-family:var(--serif);font-weight:800;font-size:clamp(58px,17vw,74px);color:var(--verde-2);line-height:1;
+.precio-viejo::after{content:'';position:absolute;left:-4%;top:54%;height:4px;width:0;background:var(--oro-osc);border-radius:3px;transform:rotate(-6deg);transition:width .5s ease .3s}
+.precio-nuevo{display:block;font-family:var(--serif);font-weight:700;font-size:clamp(66px,19vw,84px);color:var(--verde);line-height:1;
   max-height:0;opacity:0;transform:scale(.5);overflow:hidden;
   transition:max-height .5s ease 1.4s,opacity .5s ease 1.4s,transform .6s cubic-bezier(.34,1.56,.64,1) 1.4s}
-.ahorro{display:inline-block;margin-top:16px;background:var(--terracota);color:#fff;font-weight:800;border-radius:999px;padding:10px 18px;font-size:15px;line-height:1.35;
+.ahorro{display:inline-block;margin-top:14px;background:var(--verde);color:var(--oro-claro);font-weight:600;border-radius:999px;padding:10px 18px;font-size:14.5px;line-height:1.35;
   opacity:0;transform:translateY(16px);transition:all .5s ease 2s}
-.precio-box.play .precio-viejo{font-size:24px;color:var(--gris);opacity:.9}
+.precio-box.play .precio-viejo{font-size:28px;color:var(--gris);opacity:.9}
 .precio-box.play .precio-viejo::after{width:108%}
-.precio-box.play .precio-nuevo{max-height:120px;opacity:1;transform:scale(1);margin-top:6px}
+.precio-box.play .precio-nuevo{max-height:130px;opacity:1;transform:scale(1);margin-top:4px}
 .precio-box.play .ahorro{opacity:1;transform:none}
 .formato{margin:18px 0 22px;font-size:14.5px;color:var(--tx-mut);line-height:1.55}
 .formato strong{color:var(--tx)}
-.oferta .cta{background:var(--verde-2)}
-.seguro{margin-top:18px;font-size:13.5px;color:var(--tx-mut)}
+.seguro{margin-top:16px;font-size:13.5px;color:var(--tx-mut)}
 
 /* ===== GARANTÍA ===== */
-.sello{width:120px;height:120px;margin:0 auto 18px;border-radius:50%;background:var(--verde);color:var(--dorado);display:flex;flex-direction:column;align-items:center;justify-content:center;
-  font-family:var(--serif);font-weight:800;line-height:1;box-shadow:0 0 0 6px var(--crema),0 0 0 8px var(--dorado)}
-.sello span{font-size:46px}
-.sello small{font-family:var(--sans);font-size:11px;letter-spacing:.2em;margin-top:4px}
+.sello{width:128px;height:128px;margin:0 auto 20px;border-radius:50%;background:var(--verde);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:0 0 0 5px var(--crema),0 0 0 7px var(--oro),0 14px 30px rgba(14,40,24,.25)}
+.sello span{display:block;font-family:var(--serif);font-weight:700;font-size:54px;line-height:1;color:var(--oro-claro)}
+.sello small{display:block;font-family:var(--caps);font-size:11px;line-height:1;letter-spacing:.26em;color:var(--oro);margin-top:6px}
 
 /* ===== FAQ ===== */
 .faq{margin-top:26px;display:flex;flex-direction:column;gap:12px;text-align:left}
 .faq details{background:var(--blanco);border-radius:18px;box-shadow:var(--sombra);overflow:hidden}
-.faq summary{list-style:none;cursor:pointer;padding:18px 20px;font-weight:700;font-size:16px;color:var(--verde);display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq summary{list-style:none;cursor:pointer;padding:18px 20px;font-family:var(--serif);font-weight:700;font-size:21px;line-height:1.2;color:var(--verde);display:flex;justify-content:space-between;align-items:center;gap:14px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:'+';font-size:24px;color:var(--terracota);transition:transform .25s ease;flex-shrink:0}
+.faq summary::after{content:'+';font-family:var(--sans);font-size:24px;color:var(--oro-osc);transition:transform .25s ease;flex-shrink:0}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq .r{padding:0 20px 18px;font-size:15.5px;color:var(--tx-mut);line-height:1.6}
 
-/* ===== CARTA FINAL ===== */
-.carta{max-width:520px;margin:28px auto 30px;background:var(--crema-2);color:var(--tx);border-radius:var(--radio);padding:28px 24px;text-align:left;
-  font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.6;box-shadow:0 18px 40px rgba(0,0,0,.2)}
-.carta .firma{margin-top:14px;font-style:normal;font-weight:800;color:var(--terracota);font-size:16px}
+/* ===== CARTA ===== */
+.carta{max-width:520px;margin:26px auto 30px;background:var(--crema-2);color:var(--tx);border-radius:var(--radio);padding:30px 26px;text-align:left;
+  font-family:var(--serif);font-style:italic;font-weight:500;font-size:23px;line-height:1.5;box-shadow:0 18px 40px rgba(0,0,0,.3);border-top:4px solid var(--oro)}
+.carta .firma{margin-top:16px;font-family:var(--caps);font-style:normal;font-weight:600;font-size:13px;letter-spacing:.24em;color:var(--oro-osc)}
 
-.pie{background:#16291F;color:rgba(243,235,221,.55);padding:26px 20px;text-align:center;font-size:12px;line-height:1.6}
+.pie{background:#081A0F;color:rgba(242,234,219,.5);padding:28px 20px;text-align:center;font-size:12px;line-height:1.7}
+.pie .marca{font-family:var(--caps);letter-spacing:.3em;color:var(--oro);font-size:13px;margin-bottom:8px}
 
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv,.bono{opacity:1;transform:none}}
 </style>
 
+<!-- hoja dorada reutilizable para los adornos -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="g-oro" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A9823C"/><stop offset=".5" stop-color="#E8CD8F"/><stop offset="1" stop-color="#B88E45"/></linearGradient>
+    <symbol id="hoja" viewBox="0 0 26 18"><path d="M13 17C13 10 8 5 2 4c0 6 5 11 11 13zm0 0c0-7 5-12 11-13 0 6-5 11-11 13zm0 0V7" fill="none" stroke="url(#g-oro)" stroke-width="1.4"/></symbol>
+  </defs>
+</svg>
+
 <!-- ═════ HERO ═════ -->
-<section class="sec puntos centro" id="hero">
+<section class="sec oscuro centro" id="hero">
   <div class="wrap">
-    <span class="kicker rv">Método Constante</span>
-    <h1 class="rv">Un día a la vez<br><span class="acento">constancia, no perfección</span></h1>
-    <p class="hero-sub rv">Cuidarte no es un castigo, es un mimo.</p>
-    <p class="lead rv" style="margin-top:18px">La guía para dejar de empezar el lunes y abandonar el miércoles: comer sano sin dietas estrictas, moverte sin presión y volver a elegirte, aunque vengas de una etapa difícil.</p>
-    <div class="img-ph hero-img rv">IMAGEN<br>Portada del ebook<br>(mockup)</div>
-    <a href="#oferta" class="cta latido rv">Quiero empezar hoy →</a>
+    <!-- ⚠️ reemplazar img/logo.jpg por el enlace de Impultienda -->
+    <img class="logo rv" src="img/logo.jpg" alt="Método Constante">
+    <h1 class="rv">Un día a la vez</h1>
+    <p class="hero-sub oro rv">Constancia, no perfección</p>
+    <div class="orn rv"><svg><use href="#hoja"/></svg></div>
+    <p class="lead rv">Cuidarte no es un castigo, es un mimo. La guía para dejar de empezar el lunes y abandonar el miércoles: comer sano sin dietas estrictas, moverte sin presión y volver a elegirte, aunque vengas de una etapa difícil.</p>
+    <!-- ⚠️ reemplazar img/mockup-1.jpg por el enlace de Impultienda -->
+    <img class="hero-mock rv" src="img/mockup-1.jpg" alt="Ebook Un día a la vez · Método Constante">
+    <a href="#oferta" class="cta latido rv">Quiero empezar hoy</a>
     <div class="chips rv">
-      <span class="chip">📘 14 capítulos</span>
-      <span class="chip">🎁 5 regalos</span>
-      <span class="chip">📱 PDF al instante</span>
+      <span class="chip">14 capítulos</span>
+      <span class="chip">5 regalos</span>
+      <span class="chip">PDF al instante</span>
     </div>
   </div>
 </section>
 
 <!-- ═════ TE ESCUCHAMOS ═════ -->
-<section class="sec salvia centro">
+<section class="sec lino centro">
   <div class="wrap">
     <span class="kicker rv">Te escuchamos</span>
-    <h2 class="rv">Si alguna vez dijiste <span class="acento">una de estas frases</span>, esta página es para vos</h2>
+    <h2 class="rv">Si alguna vez dijiste <span class="oro">una de estas frases</span>, esta página es para vos</h2>
     <div class="frases">
       <div class="frase rv">"El lunes empiezo… de verdad esta vez."</div>
-      <div class="frase rv">"Ya fue, hoy me comí todo. Arranco de nuevo la semana que viene."</div>
+      <div class="frase rv">"Ya fue, hoy me comí todo. Arranco la semana que viene."</div>
       <div class="frase rv">"Hago dieta, aguanto dos semanas y la dejo."</div>
       <div class="frase rv">"El gimnasio no es para mí."</div>
       <div class="frase rv">"No tengo ganas de nada últimamente."</div>
       <div class="frase rv">"Me ocupo de todos menos de mí."</div>
     </div>
-    <p class="cierre-frases rv">No te falta fuerza de voluntad. <strong>Te sobra exigencia.</strong></p>
+    <div class="orn rv"><svg><use href="#hoja"/></svg></div>
+    <p class="cierre-frases rv">No te falta fuerza de voluntad.<br><span class="oro">Te sobra exigencia.</span></p>
   </div>
 </section>
 
 <!-- ═════ UN DÍA CON EL MÉTODO ═════ -->
-<section class="sec puntos centro">
+<section class="sec claro centro">
   <div class="wrap">
     <span class="kicker rv">Así es un día con el método</span>
-    <h2 class="rv">Abrís el capítulo y <span class="acento">sabés qué hacer hoy</span></h2>
+    <h2 class="rv">Abrís el capítulo y <span class="oro">sabés qué hacer hoy</span></h2>
     <p class="lead rv">Nada de cambiar todo de golpe. Cada capítulo te da pasos chiquitos que entran en tu día.</p>
     <div class="telefono anima">
       <div class="pantalla">
@@ -276,62 +310,63 @@ h3{font-size:22px}
         <div class="tarea"><span class="ico">⏱️</span><span class="txt"><b>Mini reto</b>2 minutos de tu hábito. Nada más.</span><span class="chk">✓</span></div>
         <div class="tarea"><span class="ico">🍽️</span><span class="txt"><b>Tu plato</b>mitad verduras, proteína y algo que te guste</span><span class="chk">✓</span></div>
         <div class="tarea"><span class="ico">🚶</span><span class="txt"><b>Moverte</b>10 minutos de caminata</span><span class="chk">✓</span></div>
-        <div class="tarea"><span class="ico">💚</span><span class="txt"><b>Tu mimo</b>una ducha larga con tu música favorita</span><span class="chk">✓</span></div>
-        <div class="dia-ok">✓ Un paso chiquito. Hoy también cuenta.</div>
+        <div class="tarea"><span class="ico">🍵</span><span class="txt"><b>Tu mimo</b>un té tranquilo con tu música favorita</span><span class="chk">✓</span></div>
+        <div class="dia-ok">Un paso chiquito. Hoy también cuenta.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═════ 4 PARTES ═════ -->
+<!-- ═════ 4 PILARES ═════ -->
 <section class="sec oscuro centro">
   <div class="wrap-wide">
     <span class="kicker rv">Lo que vas a aprender</span>
-    <h2 class="rv">No es una dieta.<br><span class="acento">Son cuatro pilares.</span></h2>
+    <h2 class="rv">No es una dieta.<br><span class="oro">Son cuatro pilares.</span></h2>
+    <div class="orn rv"><svg><use href="#hoja"/></svg></div>
     <div class="partes">
-      <div class="parte rv"><div class="num">PARTE 1</div><h3>La mente primero</h3><p>Cómo atravesar una etapa triste sin culparte, por qué la motivación no alcanza y qué hacer el día que fallás para no volver a cero.</p></div>
-      <div class="parte rv"><div class="num">PARTE 2</div><h3>Comer sano sin volverte loco</h3><p>Qué es realmente comer sano, el método del plato, cómo manejar antojos y comida emocional, e ideas fáciles para cada comida.</p></div>
-      <div class="parte rv"><div class="num">PARTE 3</div><h3>Moverte, en casa o en el gym</h3><p>No necesitás amar el gimnasio para empezar. Una rutina para principiantes y el lugar que merecen el descanso, el sueño y el agua.</p></div>
-      <div class="parte rv"><div class="num">PARTE 4</div><h3>La constancia como estilo de vida</h3><p>Tu sistema semanal, cómo medir el progreso más allá de la balanza y cómo construir una nueva versión de vos desde el amor propio.</p></div>
+      <div class="parte rv"><div class="num">PARTE I</div><h3>La mente primero</h3><p>Cómo atravesar una etapa triste sin culparte, por qué la motivación no alcanza y qué hacer el día que fallás para no volver a cero.</p></div>
+      <div class="parte rv"><div class="num">PARTE II</div><h3>Comer sano, sin locuras</h3><p>Qué es realmente comer sano, el método del plato, cómo manejar antojos y comida emocional, e ideas fáciles para cada comida.</p></div>
+      <div class="parte rv"><div class="num">PARTE III</div><h3>Moverte, en casa o en el gym</h3><p>No necesitás amar el gimnasio para empezar. Una rutina para principiantes y el lugar que merecen el descanso, el sueño y el agua.</p></div>
+      <div class="parte rv"><div class="num">PARTE IV</div><h3>La constancia como estilo de vida</h3><p>Tu sistema semanal, cómo medir el progreso más allá de la balanza y cómo construir una nueva versión de vos desde el amor propio.</p></div>
     </div>
   </div>
 </section>
 
 <!-- ═════ COMPARATIVA ═════ -->
-<section class="sec centro">
+<section class="sec lino centro">
   <div class="wrap">
     <span class="kicker rv">La diferencia</span>
-    <h2 class="rv">Dieta estricta vs. <span class="acento">Método Constante</span></h2>
+    <h2 class="rv">Dieta estricta vs. <span class="oro">Método Constante</span></h2>
     <div class="vs rv">
-      <div class="vs-col vs-mal"><h4>Con dieta estricta</h4><ul>
+      <div class="vs-col vs-mal"><h4>Dieta estricta</h4><ul>
         <li>Prohibís alimentos</li><li>Cambiás todo de golpe</li><li>Dependés de las ganas</li><li>Un error y abandonás</li><li>Te medís solo con la balanza</li><li>Te cuidás desde la culpa</li></ul></div>
-      <div class="vs-col vs-bien"><h4>Con el método</h4><ul>
+      <div class="vs-col vs-bien"><h4>Método Constante</h4><ul>
         <li>Comés de todo, mejor</li><li>Un paso chiquito por día</li><li>Te apoyás en hábitos</li><li>Te caés y volvés</li><li>Medís cómo te sentís</li><li>Te cuidás porque te querés</li></ul></div>
     </div>
   </div>
 </section>
 
 <!-- ═════ ÍNDICE ═════ -->
-<section class="sec salvia centro">
+<section class="sec claro centro">
   <div class="wrap">
     <span class="kicker rv">Por dentro</span>
-    <h2 class="rv">Los <span class="acento">14 capítulos</span></h2>
+    <h2 class="rv">Los <span class="oro">14 capítulos</span></h2>
     <div class="indice rv">
-      <div class="parte-ttl">Parte 1 · La mente primero</div>
-      <div class="cap"><span>01</span>Cuando estás en una etapa triste: reconocerla sin culparte</div>
-      <div class="cap"><span>02</span>La motivación se va, los hábitos se quedan</div>
-      <div class="cap"><span>03</span>El poder de empezar pequeño (la regla de los 2 minutos)</div>
-      <div class="cap"><span>04</span>Qué hacer el día que fallás</div>
-      <div class="parte-ttl">Parte 2 · Comer sano</div>
-      <div class="cap"><span>05</span>Qué es realmente "comer sano" y qué no lo es</div>
-      <div class="cap"><span>06</span>Adiós a las dietas estrictas: el método del plato</div>
-      <div class="cap"><span>07</span>Antojos, ansiedad y comida emocional</div>
-      <div class="cap"><span>08</span>Ideas fáciles de desayunos, almuerzos y cenas</div>
-      <div class="parte-ttl">Parte 3 · Moverte</div>
-      <div class="cap"><span>09</span>No necesitás amar el gym para empezar</div>
+      <div class="parte-ttl">Parte I · La mente primero</div>
+      <div class="cap"><span>1</span>Cuando estás en una etapa triste: reconocerla sin culparte</div>
+      <div class="cap"><span>2</span>La motivación se va, los hábitos se quedan</div>
+      <div class="cap"><span>3</span>El poder de empezar pequeño (la regla de los 2 minutos)</div>
+      <div class="cap"><span>4</span>Qué hacer el día que fallás</div>
+      <div class="parte-ttl">Parte II · Comer sano</div>
+      <div class="cap"><span>5</span>Qué es realmente "comer sano" y qué no lo es</div>
+      <div class="cap"><span>6</span>Adiós a las dietas estrictas: el método del plato</div>
+      <div class="cap"><span>7</span>Antojos, ansiedad y comida emocional</div>
+      <div class="cap"><span>8</span>Ideas fáciles de desayunos, almuerzos y cenas</div>
+      <div class="parte-ttl">Parte III · Moverte</div>
+      <div class="cap"><span>9</span>No necesitás amar el gym para empezar</div>
       <div class="cap"><span>10</span>Rutina para principiantes, en casa y en el gym</div>
       <div class="cap"><span>11</span>Descanso, sueño y agua: lo que nadie te cuenta</div>
-      <div class="parte-ttl">Parte 4 · La constancia</div>
+      <div class="parte-ttl">Parte IV · La constancia</div>
       <div class="cap"><span>12</span>Cómo armar tu sistema semanal</div>
       <div class="cap"><span>13</span>Medir el progreso más allá de la balanza</div>
       <div class="cap"><span>14</span>Tu nuevo yo: identidad y amor propio</div>
@@ -339,16 +374,16 @@ h3{font-size:22px}
       <div class="cap"><span>✉</span>Carta para el día que quieras rendirte</div>
     </div>
     <div class="incluye rv">
-      <div>🌅 Frase para hoy</div><div>💬 Recordatorios</div><div>✅ Mini reto diario</div>
+      <div>🌅 Frase para hoy</div><div>💬 Recordatorios</div><div>✓ Mini reto diario</div>
     </div>
   </div>
 </section>
 
 <!-- ═════ REGALOS ═════ -->
-<section class="sec puntos centro">
+<section class="sec lino centro">
   <div class="wrap">
     <span class="kicker rv">Con tu ebook</span>
-    <h2 class="rv">Tenés <span class="acento">5 regalos</span> esperándote</h2>
+    <h2 class="rv">Tenés <span class="oro">5 regalos</span> esperándote</h2>
     <p class="lead rv">Cada uno te ayuda con una traba de siempre: organizarte, qué cocinar, cómo entrenar y cómo sostenerlo.</p>
     <div class="regalo anima">
       <div class="rayos"></div>
@@ -356,11 +391,11 @@ h3{font-size:22px}
       <div class="cuerpo"></div>
     </div>
     <div class="bonos anima">
-      <div class="bono"><div class="img-ph">IMAGEN<br>Regalo 1</div><div class="info"><div class="n">REGALO 1</div><h4>Tracker de constancia de 30 días</h4><p>Imprimible, con una frase para cada día.</p><div class="gratis"><s>$5.000</s>GRATIS</div></div></div>
-      <div class="bono"><div class="img-ph">IMAGEN<br>Regalo 2</div><div class="info"><div class="n">REGALO 2</div><h4>Recetario express</h4><p>20 comidas sanas en 15 minutos.</p><div class="gratis"><s>$5.000</s>GRATIS</div></div></div>
-      <div class="bono"><div class="img-ph">IMAGEN<br>Regalo 3</div><div class="info"><div class="n">REGALO 3</div><h4>Rutina de 4 semanas</h4><p>Para principiantes, en casa y en el gym.</p><div class="gratis"><s>$4.000</s>GRATIS</div></div></div>
-      <div class="bono"><div class="img-ph">IMAGEN<br>Regalo 4</div><div class="info"><div class="n">REGALO 4</div><h4>Planificador semanal + lista del súper</h4><p>Tu semana organizada, sin improvisar.</p><div class="gratis"><s>$3.000</s>GRATIS</div></div></div>
-      <div class="bono ancho"><div class="img-ph">IMAGEN<br>Regalo 5</div><div class="info"><div class="n">REGALO 5</div><h4>Diario de bienestar emocional: 30 días para volver a vos</h4><p>Preguntas para escribir, gratitud y frases para los días difíciles.</p><div class="gratis"><s>$3.000</s>GRATIS</div></div></div>
+      <div class="bono"><div class="img-ph">Imagen<br>Regalo 1</div><div class="info"><div class="n">REGALO 1</div><h4>Tracker de constancia de 30 días</h4><p>Imprimible, con una frase para cada día.</p><div class="gratis"><s>$5.000</s>GRATIS</div></div></div>
+      <div class="bono"><div class="img-ph">Imagen<br>Regalo 2</div><div class="info"><div class="n">REGALO 2</div><h4>Recetario express</h4><p>20 comidas sanas en 15 minutos.</p><div class="gratis"><s>$5.000</s>GRATIS</div></div></div>
+      <div class="bono"><div class="img-ph">Imagen<br>Regalo 3</div><div class="info"><div class="n">REGALO 3</div><h4>Rutina de 4 semanas</h4><p>Para principiantes, en casa y en el gym.</p><div class="gratis"><s>$4.000</s>GRATIS</div></div></div>
+      <div class="bono"><div class="img-ph">Imagen<br>Regalo 4</div><div class="info"><div class="n">REGALO 4</div><h4>Planificador semanal + lista del súper</h4><p>Tu semana organizada, sin improvisar.</p><div class="gratis"><s>$3.000</s>GRATIS</div></div></div>
+      <div class="bono ancho"><div class="img-ph">Imagen<br>Regalo 5</div><div class="info"><div class="n">REGALO 5</div><h4>Diario de bienestar emocional: 30 días para volver a vos</h4><p>Preguntas para escribir, gratitud y frases para los días difíciles.</p><div class="gratis"><s>$3.000</s>GRATIS</div></div></div>
     </div>
   </div>
 </section>
@@ -369,7 +404,9 @@ h3{font-size:22px}
 <section class="sec oscuro centro" id="oferta">
   <div class="wrap">
     <span class="kicker rv">Precio de lanzamiento</span>
-    <h2 class="rv">Todo lo que <span class="acento">te llevás hoy</span></h2>
+    <h2 class="rv">Todo lo que <span class="oro">te llevás hoy</span></h2>
+    <!-- ⚠️ reemplazar img/mockup-2.jpg por el enlace de Impultienda -->
+    <img class="oferta-mock rv" src="img/mockup-2.jpg" alt="Ebook Método Constante con sus regalos">
     <div class="oferta rv">
       <div class="item">📘 Ebook "Un día a la vez" · 14 capítulos <b>INCLUIDO</b></div>
       <div class="item">📅 Tracker de constancia de 30 días <b>GRATIS</b></div>
@@ -378,32 +415,32 @@ h3{font-size:22px}
       <div class="item">🛒 Planificador semanal + lista del súper <b>GRATIS</b></div>
       <div class="item">📝 Diario de bienestar emocional <b>GRATIS</b></div>
 
-      <div class="valor">Valor total</div>
+      <div class="valor">VALOR TOTAL</div>
       <div class="precio-box anima">
         <div class="precio-viejo">$35.000</div>
         <span class="precio-nuevo">$14.990</span>
         <div class="ahorro">Te llevás $35.000 de valor por $14.990</div>
       </div>
       <p class="formato">📄 <strong>Es un PDF</strong> que abrís en el celular o imprimís · Pago único, sin suscripciones · Te llega al correo al momento</p>
-      <a href="/checkout" class="cta latido">Quiero mi ebook →</a>
+      <a href="/checkout" class="cta latido">Quiero mi ebook</a>
       <p class="seguro">🔒 Pago seguro · 🛡️ 7 días de garantía</p>
     </div>
   </div>
 </section>
 
 <!-- ═════ GARANTÍA ═════ -->
-<section class="sec centro">
+<section class="sec lino centro">
   <div class="wrap">
     <div class="sello rv"><span>7</span><small>DÍAS</small></div>
-    <h2 class="rv">Probalo <span class="acento">sin riesgo</span></h2>
+    <h2 class="rv">Probalo <span class="oro">sin riesgo</span></h2>
     <p class="lead rv">Si en 7 días sentís que no es para vos, te devolvemos el 100% del dinero. Sin preguntas.</p>
   </div>
 </section>
 
 <!-- ═════ FAQ ═════ -->
-<section class="sec salvia">
+<section class="sec claro">
   <div class="wrap">
-    <div class="centro"><span class="kicker rv">Tus dudas</span><h2 class="rv">Preguntas <span class="acento">frecuentes</span></h2></div>
+    <div class="centro"><span class="kicker rv">Tus dudas</span><h2 class="rv">Preguntas <span class="oro">frecuentes</span></h2></div>
     <div class="faq rv">
       <details><summary>¿Es una dieta?</summary><div class="r">No. No hay alimentos prohibidos ni conteo de calorías. Aprendés a comer mejor con el método del plato y a manejar los antojos sin culpa.</div></details>
       <details><summary>¿Necesito ir al gimnasio?</summary><div class="r">No. La rutina tiene versión para casa y versión para el gimnasio. Lo importante es encontrar un movimiento que puedas repetir.</div></details>
@@ -419,19 +456,20 @@ h3{font-size:22px}
 <section class="sec oscuro centro">
   <div class="wrap">
     <span class="kicker rv">Para el día que quieras rendirte</span>
-    <h2 class="rv">No tenés que hacerlo perfecto.<br><span class="acento">Solo tenés que volver.</span></h2>
+    <h2 class="rv">No tenés que hacerlo perfecto.<br><span class="oro">Solo tenés que volver.</span></h2>
     <div class="carta rv">
       "Si hoy no pudiste, no pasa nada. Un mal día no borra todo lo que hiciste. Mañana no tenés que compensar nada: solo tenés que dar un paso chiquito. Un día a la vez. Hoy también cuenta."
       <div class="firma">— Método Constante</div>
     </div>
-    <a href="#oferta" class="cta rv">Quiero empezar hoy →</a>
+    <a href="#oferta" class="cta rv">Quiero empezar hoy</a>
     <p class="cta-nota rv">📱 En el celular, la tablet o impreso</p>
   </div>
 </section>
 
 <div class="pie">
+  <div class="marca">MÉTODO CONSTANTE</div>
   Este ebook tiene fines informativos y motivacionales. No reemplaza la consulta con médicos, nutricionistas ni profesionales de la salud mental.<br>
-  © 2026 · Método Constante · Todos los derechos reservados
+  © 2026 · Todos los derechos reservados
 </div>
 
 <script>
@@ -444,7 +482,7 @@ h3{font-size:22px}
       entries.forEach(function(e){
         if(e.isIntersecting){e.target.classList.add('play');io.unobserve(e.target);}
       });
-    },{threshold:.3,rootMargin:'0px 0px -40px 0px'});
+    },{threshold:.25,rootMargin:'0px 0px -40px 0px'});
     els.forEach(function(e){io.observe(e)});
   }catch(err){
     document.querySelectorAll('.rv,.anima').forEach(function(e){e.classList.add('play')});
