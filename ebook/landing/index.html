@@ -255,6 +255,16 @@ h3{font-size:26px}
 .fb-shot{flex:0 0 86%;max-width:380px;scroll-snap-align:center;background:#fff;border-radius:18px;padding:8px;box-shadow:var(--sombra);align-self:flex-start}
 .fb-shot img{width:100%;height:auto;border-radius:12px;display:block}
 @media(min-width:760px){.fb-shot{flex-basis:46%}}
+/* carrusel automático de comentarios */
+.tc-wrap{position:relative;z-index:2;overflow:hidden;margin-top:26px;-webkit-mask:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);mask:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%)}
+.tc-track{display:flex;align-items:flex-start;will-change:transform}
+.tc-item{flex-shrink:0;width:300px;margin-right:16px;border-radius:18px;overflow:hidden;background:#fff;border:1px solid rgba(201,163,91,.6);box-shadow:var(--sombra)}
+.tc-item img{width:100%;height:auto;display:block}
+.tc-item.fb-card{padding:16px;border-radius:18px}
+@media(max-width:480px){.tc-item{width:270px}}
+.tc-nav{position:relative;z-index:2;display:flex;justify-content:center;gap:12px;margin-top:22px}
+.tc-btn{width:46px;height:46px;border-radius:50%;background:var(--crema-2);border:1.5px solid var(--oro);color:var(--verde);font-size:24px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--sombra);transition:transform .15s}
+.tc-btn:active{transform:scale(.94)}
 .fb-hint{font-size:13.5px;color:var(--tx-mut);margin-top:4px}
 @media(min-width:760px){.fb-card{flex-basis:46%}}
 
@@ -449,15 +459,19 @@ h3{font-size:26px}
   </div>
 </section>
 
-<!-- ═════ COMENTARIOS (estilo Facebook) ═════
+<!-- ═════ COMENTARIOS (carrusel de capturas) ═════
      Se muestra SOLO si cargás capturas reales en la lista CAPTURAS del script de abajo. -->
 <section class="sec claro centro" id="opiniones" style="display:none">
   <div class="wrap">
-    <span class="kicker rv">Lo que dicen</span>
+    <span class="kicker rv">Voces reales</span>
     <h2 class="rv">Lo que nos <span class="oro">contaron</span></h2>
-    <div class="fb-scroll" id="fb-lista"></div>
-    <p class="fb-hint">Deslizá para ver más opiniones →</p>
   </div>
+  <div class="tc-wrap" id="tc-wrap"><div class="tc-track" id="fb-lista"></div></div>
+  <div class="tc-nav">
+    <button type="button" id="tc-prev" class="tc-btn" aria-label="Anterior">‹</button>
+    <button type="button" id="tc-next" class="tc-btn" aria-label="Siguiente">›</button>
+  </div>
+  <div class="wrap" style="margin-top:28px"><a href="#oferta" class="cta">Yo también lo quiero</a></div>
 </section>
 
 <!-- ═════ OFERTA ═════ -->
@@ -557,21 +571,37 @@ var COMENTARIOS = [
   try{
     if(!COMENTARIOS.length && !CAPTURAS.length) return;
     var lista=document.getElementById('fb-lista');
-    CAPTURAS.forEach(function(u,i){
-      var d=document.createElement('div');d.className='fb-shot';
-      var im=document.createElement('img');im.src=u;im.alt='Comentario real '+(i+1);im.loading='lazy';
-      d.appendChild(im);lista.appendChild(d);
-    });
     function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]});}
+    var items=[];
+    CAPTURAS.forEach(function(u,i){items.push('<div class="tc-item"><img src="'+esc(u)+'" alt="Comentario real '+(i+1)+'" loading="lazy" decoding="async"></div>');});
     COMENTARIOS.forEach(function(c){
       var ini=c.nombre.split(' ').map(function(w){return w.charAt(0)}).join('').slice(0,2).toUpperCase();
       var av=c.foto?'<img src="'+esc(c.foto)+'" alt="">':esc(ini);
       var re=c.me_gusta>0?'<span class="fb-react"><i>👍</i><i>❤️</i>'+c.me_gusta+'</span>':'';
-      lista.insertAdjacentHTML('beforeend',
-        '<div class="fb-card"><div class="fb-top"><div class="fb-av">'+av+'</div><div class="fb-bubble"><div class="fb-name">'+esc(c.nombre)+'</div><div class="fb-txt">'+esc(c.texto)+'</div>'+re+'</div></div>'+
+      items.push('<div class="tc-item fb-card"><div class="fb-top"><div class="fb-av">'+av+'</div><div class="fb-bubble"><div class="fb-name">'+esc(c.nombre)+'</div><div class="fb-txt">'+esc(c.texto)+'</div>'+re+'</div></div>'+
         '<div class="fb-acc"><span>Me gusta</span><span>Responder</span><span>'+esc(c.tiempo||'')+'</span></div></div>');
     });
+    var ORIG=items.length;
+    /* copias al final para que el carrusel sea infinito */
+    var dup=[];for(var k=0;k<Math.max(3,ORIG);k++){dup.push(items[k%ORIG].replace('class="tc-item','aria-hidden="true" class="tc-item'));}
+    lista.innerHTML=items.join('')+dup.join('');
     document.getElementById('opiniones').style.display='';
+    /* movimiento automático + flechas (pausa al tocar) */
+    var pos=0,paused=false,offscreen=false,cW=0,SPEED=.35,timer=null;
+    function iW(){if(cW)return cW;var el=lista.querySelector('.tc-item');if(!el)return 316;cW=el.offsetWidth+parseInt(getComputedStyle(el).marginRight||16,10);return cW;}
+    function lW(){return iW()*ORIG;}
+    window.addEventListener('resize',function(){cW=0;},{passive:true});
+    document.addEventListener('visibilitychange',function(){paused=document.hidden;});
+    if('IntersectionObserver' in window){new IntersectionObserver(function(en){en.forEach(function(e){offscreen=!e.isIntersecting;});}).observe(lista);}
+    function step(){if(!paused&&!offscreen){pos-=SPEED;if(pos<=-lW())pos+=lW();lista.style.transform='translateX('+pos+'px)';}requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+    var wrap=document.getElementById('tc-wrap');
+    wrap.addEventListener('mouseenter',function(){paused=true;});wrap.addEventListener('mouseleave',function(){paused=false;});
+    function goTo(dir){var w=iW();pos=-Math.round(-pos/w)*w+dir*w;if(pos>0)pos-=lW();if(pos<=-lW())pos+=lW();
+      lista.style.transition='transform .35s cubic-bezier(.2,.7,.2,1)';lista.style.transform='translateX('+pos+'px)';
+      paused=true;clearTimeout(timer);timer=setTimeout(function(){lista.style.transition='';paused=false;},4000);}
+    document.getElementById('tc-prev').addEventListener('click',function(){goTo(1);});
+    document.getElementById('tc-next').addEventListener('click',function(){goTo(-1);});
   }catch(e){}
 })();
 </script>
