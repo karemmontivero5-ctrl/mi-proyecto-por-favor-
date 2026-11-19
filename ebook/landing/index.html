@@ -57,6 +57,12 @@ img{max-width:100%;display:block}
              repeating-linear-gradient(90deg,rgba(14,40,24,.02) 0 1px,transparent 1px 3px)}
 .claro{background:var(--crema-2)}
 
+
+/* símbolos de constancia de fondo (escalera, amanecer, brote, calendario, reloj, corazón, pesa, check) */
+.simbolos::after{content:'';position:absolute;inset:-280px 0 0 0;z-index:1;pointer-events:none;opacity:.2;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280' viewBox='0 0 280 280'%3E%3Cg fill='none' stroke='%23C9A35B' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg transform='translate%2818 20%29'%3E%3Cpath d='M0 46h14V34h14V22h14V10h14'/%3E%3C/g%3E%3Cg transform='translate%28150 14%29'%3E%3Cpath d='M0 40h56M10 40a18 18 0 0 1 36 0M28 12V4M12 22l-6-6M44 22l6-6'/%3E%3C/g%3E%3Cg transform='translate%2895 95%29'%3E%3Cpath d='M24 50V24M24 32C12 32 6 24 6 14c10 0 18 6 18 18M24 26c0-12 8-18 20-18 0 12-8 18-20 18'/%3E%3C/g%3E%3Cg transform='translate%2815 150%29'%3E%3Cpath d='M2 8h44v38H2zM2 18h44M12 2v10M36 2v10M13 32l7 7 13-13'/%3E%3C/g%3E%3Cg transform='translate%28185 110%29'%3E%3Cpath d='M2 2h30M2 50h30M5 2c0 16 24 16 24 24S5 34 5 50M29 2c0 16-24 16-24 24s24 8 24 24'/%3E%3C/g%3E%3Cg transform='translate%28165 190%29'%3E%3Cpath d='M22 44C4 32 0 20 6 12c6-7 14-4 16 2 2-6 10-9 16-2 6 8 2 20-16 32z'/%3E%3C/g%3E%3Cg transform='translate%2890 200%29'%3E%3Cpath d='M6 22h40M6 10v24M13 14v16M46 10v24M39 14v16'/%3E%3C/g%3E%3Cg transform='translate%28225 30%29'%3E%3Cpath d='M18 2a16 16 0 1 0 0.1 0M10 18l6 6 11-11'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");background-size:280px 280px;animation:flotar 40s linear infinite}
+.lino.simbolos::after{opacity:.16}
+@keyframes flotar{from{transform:translateY(0)}to{transform:translateY(280px)}}
+
 /* tipografía */
 .kicker{display:block;font-family:var(--caps);font-weight:600;font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--oro-osc);margin-bottom:14px}
 .oscuro .kicker{color:var(--oro)}
@@ -162,27 +168,21 @@ h3{font-size:26px}
 .indice .cap{display:flex;gap:14px;padding:11px 0;border-bottom:1px solid #EEE7D8;font-size:15.5px;color:var(--tx)}
 .indice .cap:last-child{border-bottom:none}
 .indice .cap span{flex:0 0 28px;font-family:var(--serif);font-weight:700;font-size:19px;color:var(--oro-osc);line-height:1.2}
+.indice details{border-bottom:1px solid #EEE7D8}
+.indice details:last-child{border-bottom:none}
+.indice summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:18px 0}
+.indice summary::-webkit-details-marker{display:none}
+.indice summary .pt{font-family:var(--caps);font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--verde)}
+.indice summary .cnt{font-size:13px;color:var(--oro-osc);white-space:nowrap}
+.indice summary .cnt::after{content:' +';font-weight:700}
+.indice details[open] .cnt::after{content:' −'}
+.indice details .cap:last-child{padding-bottom:16px}
 .incluye{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}
 .incluye div{background:var(--blanco);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:600;color:var(--verde);box-shadow:var(--sombra)}
 
-/* ===== CAJA DE REGALO (verde + cinta dorada) ===== */
-.regalo{position:relative;width:240px;height:260px;margin:100px auto 0}
-.rayos{position:absolute;left:50%;top:55%;width:560px;height:560px;margin:-280px 0 0 -280px;border-radius:50%;
-  background:repeating-conic-gradient(rgba(201,163,91,.40) 0 8deg,transparent 8deg 22deg);
-  -webkit-mask:radial-gradient(circle,#000 18%,transparent 68%);mask:radial-gradient(circle,#000 18%,transparent 68%);
-  opacity:0;transform:scale(.3);transition:opacity .6s ease .8s,transform .8s ease .8s;z-index:0}
-.cuerpo{position:absolute;bottom:0;left:20px;width:200px;height:150px;background:linear-gradient(160deg,var(--verde-3),var(--verde));border-radius:14px;z-index:2;box-shadow:0 16px 30px rgba(14,40,24,.35)}
-.cuerpo::before,.tapa::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:30px;margin-left:-15px;background:var(--oro-grad)}
-.tapa{position:absolute;bottom:140px;left:6px;width:228px;height:44px;background:linear-gradient(160deg,#28603F,var(--verde-2));border-radius:10px;z-index:3;transform-origin:20% 100%;
-  transition:transform .7s cubic-bezier(.34,1.56,.64,1) .6s}
-.mono{position:absolute;left:50%;top:-34px;width:56px;height:38px;margin-left:-28px;border:9px solid var(--oro);border-bottom:none;border-radius:40px 40px 0 0}
-.regalo.play .cuerpo{animation:temblor .45s ease}
-.regalo.play .tapa{transform:translate(18px,-70px) rotate(-16deg)}
-.regalo.play .rayos{opacity:1;transform:scale(1);animation:girar 18s linear 1.4s infinite}
-@keyframes temblor{0%,100%{transform:rotate(0)}20%{transform:rotate(-4deg)}40%{transform:rotate(4deg)}60%{transform:rotate(-3deg)}80%{transform:rotate(2deg)}}
-@keyframes girar{from{transform:scale(1) rotate(0)}to{transform:scale(1) rotate(360deg)}}
+/* ===== REGALOS ===== */
 
-.bonos{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:40px;text-align:left}
+.bonos{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px;text-align:left}
 .bono{background:var(--blanco);border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra);opacity:0;transform:translateY(30px);transition:opacity .5s ease,transform .5s ease}
 .bono .img-ph{border:none;border-bottom:1.5px dashed var(--oro);aspect-ratio:1/1}
 .bono .info{padding:16px 15px 18px}
@@ -194,11 +194,11 @@ h3{font-size:26px}
 .bono.ancho{grid-column:1/-1}
 .bono.ancho .img-ph{aspect-ratio:2/1}
 .bonos.play .bono{opacity:1;transform:none}
-.bonos.play .bono:nth-child(1){transition-delay:1.5s}
-.bonos.play .bono:nth-child(2){transition-delay:1.7s}
-.bonos.play .bono:nth-child(3){transition-delay:1.9s}
-.bonos.play .bono:nth-child(4){transition-delay:2.1s}
-.bonos.play .bono:nth-child(5){transition-delay:2.3s}
+.bonos.play .bono:nth-child(1){transition-delay:.1s}
+.bonos.play .bono:nth-child(2){transition-delay:.25s}
+.bonos.play .bono:nth-child(3){transition-delay:.4s}
+.bonos.play .bono:nth-child(4){transition-delay:.55s}
+.bonos.play .bono:nth-child(5){transition-delay:.7s}
 @media(max-width:380px){.bonos{grid-template-columns:1fr}}
 
 /* ===== OFERTA + PRECIO ANIMADO ===== */
@@ -259,14 +259,14 @@ h3{font-size:26px}
 </svg>
 
 <!-- ═════ HERO ═════ -->
-<section class="sec oscuro centro" id="hero">
+<section class="sec oscuro centro simbolos" id="hero">
   <div class="wrap">
     <!-- ⚠️ reemplazar img/logo.jpg por el enlace de Impultienda -->
     <img class="logo rv" src="img/logo.jpg" alt="Método Constante">
     <h1 class="rv">Un día a la vez</h1>
     <p class="hero-sub oro rv">Constancia, no perfección</p>
     <div class="orn rv"><svg><use href="#hoja"/></svg></div>
-    <p class="lead rv">Cuidarte no es un castigo, es un mimo. La guía para dejar de empezar el lunes y abandonar el miércoles: comer sano sin dietas estrictas, moverte sin presión y volver a elegirte, aunque vengas de una etapa difícil.</p>
+    <p class="lead rv">Cuidarte no es un castigo, es un mimo.<br>Hábitos sanos, sin dietas y sin culpa.</p>
     <!-- ⚠️ reemplazar img/mockup-1.jpg por el enlace de Impultienda -->
     <img class="hero-mock rv" src="img/mockup-1.jpg" alt="Ebook Un día a la vez · Método Constante">
     <a href="#oferta" class="cta latido rv">Quiero empezar hoy</a>
@@ -286,10 +286,8 @@ h3{font-size:26px}
     <div class="frases">
       <div class="frase rv">"El lunes empiezo… de verdad esta vez."</div>
       <div class="frase rv">"Ya fue, hoy me comí todo. Arranco la semana que viene."</div>
-      <div class="frase rv">"Hago dieta, aguanto dos semanas y la dejo."</div>
       <div class="frase rv">"El gimnasio no es para mí."</div>
       <div class="frase rv">"No tengo ganas de nada últimamente."</div>
-      <div class="frase rv">"Me ocupo de todos menos de mí."</div>
     </div>
     <div class="orn rv"><svg><use href="#hoja"/></svg></div>
     <p class="cierre-frases rv">No te falta fuerza de voluntad.<br><span class="oro">Te sobra exigencia.</span></p>
@@ -301,7 +299,7 @@ h3{font-size:26px}
   <div class="wrap">
     <span class="kicker rv">Así es un día con el método</span>
     <h2 class="rv">Abrís el capítulo y <span class="oro">sabés qué hacer hoy</span></h2>
-    <p class="lead rv">Nada de cambiar todo de golpe. Cada capítulo te da pasos chiquitos que entran en tu día.</p>
+    <p class="lead rv">Pasos chiquitos que entran en tu día.</p>
     <div class="telefono anima">
       <div class="pantalla">
         <div class="hoy">HOY</div>
@@ -324,10 +322,10 @@ h3{font-size:26px}
     <h2 class="rv">No es una dieta.<br><span class="oro">Son cuatro pilares.</span></h2>
     <div class="orn rv"><svg><use href="#hoja"/></svg></div>
     <div class="partes">
-      <div class="parte rv"><div class="num">PARTE I</div><h3>La mente primero</h3><p>Cómo atravesar una etapa triste sin culparte, por qué la motivación no alcanza y qué hacer el día que fallás para no volver a cero.</p></div>
-      <div class="parte rv"><div class="num">PARTE II</div><h3>Comer sano, sin locuras</h3><p>Qué es realmente comer sano, el método del plato, cómo manejar antojos y comida emocional, e ideas fáciles para cada comida.</p></div>
-      <div class="parte rv"><div class="num">PARTE III</div><h3>Moverte, en casa o en el gym</h3><p>No necesitás amar el gimnasio para empezar. Una rutina para principiantes y el lugar que merecen el descanso, el sueño y el agua.</p></div>
-      <div class="parte rv"><div class="num">PARTE IV</div><h3>La constancia como estilo de vida</h3><p>Tu sistema semanal, cómo medir el progreso más allá de la balanza y cómo construir una nueva versión de vos desde el amor propio.</p></div>
+      <div class="parte rv"><div class="num">PARTE I</div><h3>La mente primero</h3><p>Salir del bache sin culpa y volver cuando fallás.</p></div>
+      <div class="parte rv"><div class="num">PARTE II</div><h3>Comer sano, sin locuras</h3><p>El método del plato, sin prohibiciones.</p></div>
+      <div class="parte rv"><div class="num">PARTE III</div><h3>Moverte, en casa o en el gym</h3><p>Una rutina simple, en casa o en el gym.</p></div>
+      <div class="parte rv"><div class="num">PARTE IV</div><h3>La constancia como estilo de vida</h3><p>Un sistema semanal y amor propio.</p></div>
     </div>
   </div>
 </section>
@@ -351,27 +349,33 @@ h3{font-size:26px}
   <div class="wrap">
     <span class="kicker rv">Por dentro</span>
     <h2 class="rv">Los <span class="oro">14 capítulos</span></h2>
+    <p class="lead rv">Tocá cada parte para verla.</p>
     <div class="indice rv">
-      <div class="parte-ttl">Parte I · La mente primero</div>
-      <div class="cap"><span>1</span>Cuando estás en una etapa triste: reconocerla sin culparte</div>
-      <div class="cap"><span>2</span>La motivación se va, los hábitos se quedan</div>
-      <div class="cap"><span>3</span>El poder de empezar pequeño (la regla de los 2 minutos)</div>
-      <div class="cap"><span>4</span>Qué hacer el día que fallás</div>
-      <div class="parte-ttl">Parte II · Comer sano</div>
-      <div class="cap"><span>5</span>Qué es realmente "comer sano" y qué no lo es</div>
-      <div class="cap"><span>6</span>Adiós a las dietas estrictas: el método del plato</div>
-      <div class="cap"><span>7</span>Antojos, ansiedad y comida emocional</div>
-      <div class="cap"><span>8</span>Ideas fáciles de desayunos, almuerzos y cenas</div>
-      <div class="parte-ttl">Parte III · Moverte</div>
-      <div class="cap"><span>9</span>No necesitás amar el gym para empezar</div>
-      <div class="cap"><span>10</span>Rutina para principiantes, en casa y en el gym</div>
-      <div class="cap"><span>11</span>Descanso, sueño y agua: lo que nadie te cuenta</div>
-      <div class="parte-ttl">Parte IV · La constancia</div>
-      <div class="cap"><span>12</span>Cómo armar tu sistema semanal</div>
-      <div class="cap"><span>13</span>Medir el progreso más allá de la balanza</div>
-      <div class="cap"><span>14</span>Tu nuevo yo: identidad y amor propio</div>
-      <div class="parte-ttl">Cierre</div>
-      <div class="cap"><span>✉</span>Carta para el día que quieras rendirte</div>
+      <details><summary><span class="pt">Parte I · La mente primero</span><span class="cnt">4 cap.</span></summary>
+        <div class="cap"><span>1</span>Cuando estás en una etapa triste: reconocerla sin culparte</div>
+        <div class="cap"><span>2</span>La motivación se va, los hábitos se quedan</div>
+        <div class="cap"><span>3</span>El poder de empezar pequeño (la regla de los 2 minutos)</div>
+        <div class="cap"><span>4</span>Qué hacer el día que fallás</div>
+      </details>
+      <details><summary><span class="pt">Parte II · Comer sano</span><span class="cnt">4 cap.</span></summary>
+        <div class="cap"><span>5</span>Qué es realmente "comer sano" y qué no lo es</div>
+        <div class="cap"><span>6</span>Adiós a las dietas estrictas: el método del plato</div>
+        <div class="cap"><span>7</span>Antojos, ansiedad y comida emocional</div>
+        <div class="cap"><span>8</span>Ideas fáciles de desayunos, almuerzos y cenas</div>
+      </details>
+      <details><summary><span class="pt">Parte III · Moverte</span><span class="cnt">3 cap.</span></summary>
+        <div class="cap"><span>9</span>No necesitás amar el gym para empezar</div>
+        <div class="cap"><span>10</span>Rutina para principiantes, en casa y en el gym</div>
+        <div class="cap"><span>11</span>Descanso, sueño y agua: lo que nadie te cuenta</div>
+      </details>
+      <details><summary><span class="pt">Parte IV · La constancia</span><span class="cnt">3 cap.</span></summary>
+        <div class="cap"><span>12</span>Cómo armar tu sistema semanal</div>
+        <div class="cap"><span>13</span>Medir el progreso más allá de la balanza</div>
+        <div class="cap"><span>14</span>Tu nuevo yo: identidad y amor propio</div>
+      </details>
+      <details><summary><span class="pt">Cierre</span><span class="cnt">1 cap.</span></summary>
+        <div class="cap"><span>✉</span>Carta para el día que quieras rendirte</div>
+      </details>
     </div>
     <div class="incluye rv">
       <div>🌅 Frase para hoy</div><div>💬 Recordatorios</div><div>✓ Mini reto diario</div>
@@ -384,12 +388,7 @@ h3{font-size:26px}
   <div class="wrap">
     <span class="kicker rv">Con tu ebook</span>
     <h2 class="rv">Tenés <span class="oro">5 regalos</span> esperándote</h2>
-    <p class="lead rv">Cada uno te ayuda con una traba de siempre: organizarte, qué cocinar, cómo entrenar y cómo sostenerlo.</p>
-    <div class="regalo anima">
-      <div class="rayos"></div>
-      <div class="tapa"><div class="mono"></div></div>
-      <div class="cuerpo"></div>
-    </div>
+    <p class="lead rv">Gratis con tu ebook.</p>
     <div class="bonos anima">
       <div class="bono"><div class="img-ph">Imagen<br>Regalo 1</div><div class="info"><div class="n">REGALO 1</div><h4>Tracker de constancia de 30 días</h4><p>Imprimible, con una frase para cada día.</p><div class="gratis"><s>$5.000</s>GRATIS</div></div></div>
       <div class="bono"><div class="img-ph">Imagen<br>Regalo 2</div><div class="info"><div class="n">REGALO 2</div><h4>Recetario express</h4><p>20 comidas sanas en 15 minutos.</p><div class="gratis"><s>$5.000</s>GRATIS</div></div></div>
@@ -421,7 +420,7 @@ h3{font-size:26px}
         <span class="precio-nuevo">$14.990</span>
         <div class="ahorro">Te llevás $35.000 de valor por $14.990</div>
       </div>
-      <p class="formato">📄 <strong>Es un PDF</strong> que abrís en el celular o imprimís · Pago único, sin suscripciones · Te llega al correo al momento</p>
+      <p class="formato">📄 PDF al instante · Pago único</p>
       <a href="/checkout" class="cta latido">Quiero mi ebook</a>
       <p class="seguro">🔒 Pago seguro · 🛡️ 7 días de garantía</p>
     </div>
@@ -453,12 +452,12 @@ h3{font-size:26px}
 </section>
 
 <!-- ═════ CIERRE ═════ -->
-<section class="sec oscuro centro">
+<section class="sec oscuro centro simbolos">
   <div class="wrap">
     <span class="kicker rv">Para el día que quieras rendirte</span>
     <h2 class="rv">No tenés que hacerlo perfecto.<br><span class="oro">Solo tenés que volver.</span></h2>
     <div class="carta rv">
-      "Si hoy no pudiste, no pasa nada. Un mal día no borra todo lo que hiciste. Mañana no tenés que compensar nada: solo tenés que dar un paso chiquito. Un día a la vez. Hoy también cuenta."
+      "Si hoy no pudiste, no pasa nada. Mañana das un paso chiquito. Hoy también cuenta."
       <div class="firma">— Método Constante</div>
     </div>
     <a href="#oferta" class="cta rv">Quiero empezar hoy</a>
